@@ -1,0 +1,81 @@
+
+.programmes {
+	text-align: left;
+
+	H3 {
+		margin: 16px 0 0 0;
+	}
+	P {
+		font-family: 'Arial Narrow', Arial, sans-serif;
+		font-size: 14px;
+		line-height: 16px;
+		background-color: $cGrey;
+		color: $cGreyMiddle80;
+		margin: 4px 0;
+		padding: 4px 4px;
+		overflow: hidden;
+	}
+
+
+	A {
+		color: $cGreyMiddle80;
+		background-color: $cGreyMiddle10;
+		padding: 0px 4px;
+		&:hover,
+		&:active {
+			color: #000000;
+		}
+	}
+
+	.filtered {
+		margin: 1px 0 2px;
+		height: 1px;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		A:link, A:visited, A:hover, A:active {
+			background-color: transparent !important;
+		}
+	}
+}
+
+
+
+.posting-content .toggler {
+	display: block;
+	list-style-type: none;
+	margin: 5px 0;
+	padding: 3px 4px 2px;
+	border-radius: 3px;
+	background: $cGreyMiddle25;
+	overflow: hidden;
+
+	LI {
+		float: left;
+		font-size: 12px;
+		line-height: 1;
+		color: #ffffff;
+	}
+	SELECT {
+		width: 200px;
+		color: $cMaxDark;
+	}
+	LABEL {
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+	}
+	INPUT[type=radio] {
+		display: block;
+		margin: 0 auto;
+	}
+
+}
+
+
+.exoten {
+	// zoom: 1;
+	// background-color: orange !important;
+}
+
+

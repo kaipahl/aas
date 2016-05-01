@@ -1,0 +1,30 @@
+{
+    "env": {
+        "browser": true
+    },
+    "rules": {
+        "strict": false,
+        "no-multi-spaces": false,
+        "quotes": [1, "single", "avoid-escape"],
+        "no-underscore-dangle": false,
+        "no-console": false,
+        "no-debugger": false,
+        "no-space-before-semi": false,
+        "no-spaced-func": false,
+        "no-unused-vars": [2, {
+            "vars": "local",
+            "args": "after-used"
+        }],
+        "no-loop-func": "1",
+        "no-use-before-define": false,
+        "no-shadow": false,
+        "key-spacing": false,
+        "new-cap": false
+    },
+    "globals": {
+        "console": true,
+        "jQuery": true,
+        "$": true,
+        "Guj": true
+    }
+}

@@ -1,0 +1,8 @@
+#commentform .focus LABEL,
+#commentform .hastext LABEL {
+	visibility: hidden;
+}
+
+.bildunterschrift {
+	padding: 4px 4px 4px 4px;
+}

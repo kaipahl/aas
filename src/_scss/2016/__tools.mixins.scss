@@ -1,0 +1,42 @@
+
+
+/**
+ *  Mixin: rem mit Fallback für IE6 und IE7
+ *  Nutzung: @include x-rem(font-size, 1.4);
+ * 	Muss in _settings definiert sein: Variable $fontsizeMain
+ *
+ *  @param $property	CSS-Property wie z.B. margin-top
+ *  @param $value		Nummerischer Wert für rem (1.4)
+ */
+@mixin x-rem ($property, $value) {
+	#{$property}: $value * $fontsizeMain;
+	#{$property}: #{$value}rem;
+}
+
+
+@mixin hide-for-non-screenreader() {
+	position: absolute;
+	top: auto;
+	left: -9999px;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+.hide-for-non-screenreader,
+.show-screenreader {
+	@include hide-for-non-screenreader;
+}
+
+
+@mixin clearfix() {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+.clearfix {
+	@include clearfix;
+}
+

@@ -1,0 +1,70 @@
+﻿/* #index .posting-head H2 A,
+#single .posting-head H2 A { 
+	font-size: 0.85em;
+}
+
+#container {
+	position: relative;
+	margin: 0 auto;
+	width: 984px;
+	background-image: none !important;
+} */
+#aas-tv {
+	background-image: none;
+	display: none;
+	position: absolute;
+	top: -999px;
+	left: -999px;
+}
+
+#navigator LI,
+.posting-footer LI {
+	float: left;
+}
+
+.box-comments .comments-nr {
+	width: 60px;
+}
+.box-comments .comment-meta {
+	margin: 0 0 0 64px;
+	padding: 0 0 0 4px;
+}
+
+#comment-description .spalte {
+	margin-left: 6px;
+	margin-right: 6px;
+	padding: 0;
+}
+
+
+
+.comment-text BLOCKQUOTE {
+	padding: 0 !important;
+	margin: 0  !important;
+}
+
+
+.button,
+#box-search INPUT#sa {
+	background-color: #222233;
+	background-image: none
+}
+#box-search INPUT#sa {
+	padding-top: 4px;
+}
+.button:hover,
+#box-search INPUT#sa:hover {
+	background-color: #7bc818;
+	background-image: none;
+}
+
+
+
+#commentform .focus LABEL,
+#commentform .hastext LABEL {
+	visibility: hidden;
+}
+
+.interview .box-right UL {
+	margin-left: 10px !important;
+}

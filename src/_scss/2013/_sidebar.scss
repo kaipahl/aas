@@ -1,0 +1,338 @@
+
+/**
+ * Sidebar Layout
+ */
+
+.box {
+	@include fontFamily(sansserif);
+	clear: left;
+	padding-bottom: $sUnit;
+	overflow: hidden;
+
+	&.first,
+	&.is-closed { padding-bottom: 0; }
+
+	@include breakpoint(small-screens) {
+		background-color: $cGreyLight;
+	}
+}
+
+.box-title {
+	margin: 0 0 4px 0;
+	padding: 2px 0 1px 8px;
+	@include fontFamily(headline);
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: left;
+	color: #ffffff;
+
+	background-color: #383838;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, $cBlack), color-stop(100%, mix($cBlack, #000000, 33%)));
+	background-image: -webkit-linear-gradient(-452deg, $cBlack 50%, mix($cBlack, #000000, 33%) 100%);
+	background-image: linear-gradient(182deg,$cBlack 50%, mix($cBlack, #000000, 33%) 100%);
+
+	border-top: 1px solid #ffffff;
+
+	@include breakpoint(small-screens) {
+		@include fontFamily(sansserif);
+		margin: 0;
+		padding-top: 4px;
+		padding-bottom: 4px;
+		font-size: 9px;
+		font-weight: normal;
+		line-height: 12px;
+		SECTION & {
+			background-image: -webkit-gradient(linear, left top, left bottom, color-stop(50%, $cGreyMiddle),color-stop(100%, mix($cGreyMiddle, $cBlack, 33%)));
+			background-image: -webkit-linear-gradient(-452deg, $cGreyMiddle 50%,mix($cGreyMiddle, $cBlack, 33%) 100%);
+			background-image: linear-gradient(182deg,$cGreyMiddle 50%,mix($cGreyMiddle, $cBlack, 33%) 100%);
+		}
+	}
+}
+
+.box-content {
+	margin: 0 8px; // entspricht dem Padding der H3-Box-Titles
+}
+
+
+
+/**
+ * Sidebar Logo-Box
+ */
+.logo-link {
+	display: block;
+	line-height: 0;
+}
+
+.logo-image {
+	width: 100%;
+	height: auto;
+}
+
+
+/**
+ * Sidebar Comment-Box
+ */
+.comments-item {
+	position: relative;
+	padding: 0 3px 0 4px;
+
+	+ .comments-item {
+		margin-top: $sUnit;
+	}
+}
+
+.comments-item-count {
+	float: left;
+	width: 60px;
+	margin: 0;
+	padding: 5px 0px;
+	color: $cGreyMiddle10;
+	@include fontFamily(headline);
+	font-size: 30px;
+	text-align: right;
+
+	@include breakpoint(small-screens) {
+		display: block;
+		width: auto;
+		float: none;
+		font-size: 38px;
+		text-align: left;
+	}
+}
+
+.comments-item-meta {
+	margin: 0 0 0 66px;
+	padding: 0 0 0 4px;
+	text-align: left;
+	border-left: 1px solid $cGrey;
+
+	A {
+		&:hover {
+			background-color: $cGreyMiddle10;
+		}
+	}
+
+	@include breakpoint(small-screens) {
+		margin: -14px 0 0 0;
+		border-left: 0 none #ffffff;
+	}
+}
+
+.comments-item-title {
+	margin: 0;
+	padding: 0;
+
+	A {
+		display: block;
+		font-size: 12px;
+		line-height: 110%;
+		text-decoration: none;
+		&:link,
+		&:visited {
+		}
+		&:hover,
+		&:active {
+			color: #000000;
+		}
+
+		@include breakpoint(small-screens) {
+			font-size: 10px;
+		}
+	}
+}
+
+
+.comments-item-details {
+	margin-top: 2px;
+	font-size: 11px;
+	line-height: 12px;
+
+	A {
+		text-decoration: none;
+		&:hover,
+		&:active {
+			color: #000000;
+		}
+		@include breakpoint(small-screens) {
+			display: block;
+		}
+	}
+
+	@include breakpoint(small-screens) {
+		font-size: 10px;
+	}
+}
+
+
+
+
+// ... Variationen ...
+.box-comments {
+	.box-content {
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+
+.box-archives LI {
+	font-size: 12px;
+	line-height: 130%;
+
+	A {
+		text-decoration: none;
+		&:link,
+		&:visited {
+			background-color: $cGreyMiddle10;
+		}
+
+		&:hover,
+		&:active {
+			color: #000000;
+			background-color: $cGreyMiddle25;
+		}
+	}
+}
+
+.box-search {
+	.box-content {
+		margin-left: 8px;
+		margin-right: 0;
+	}
+}
+
+.box-feeds {
+	.feed-items {
+		padding-left: 13px;
+		list-style-type: square;
+	}
+	.feed-item {
+		list-style-type: square;
+	}
+}
+
+.js-accordeon-title {
+	&:before {
+		position: relative;
+		top: 0;
+		left: -2px;
+		font-size: 13px;
+		font-weight: bold;
+	}
+	.is-closed &:before {
+		content: '- ';
+	}
+	.is-open &:before {
+		content: '+ ';
+	}
+}
+
+
+
+
+// @end
+
+// @group ====== SIDE:Box:Comments ======
+.box-search {
+
+	.form-line {
+		@include breakpoint(small-screens) {
+			margin-top: 4px;			// @TODO Magic Number
+		}
+	}
+	.form-text {
+		box-sizing: border-box;
+		width: 68%;
+		padding: 2px 4px;
+		font-size: 16px;				// @TODO Magic Number
+		color: $cGreyMiddle;
+		border: 1px solid $cGreyMiddle25;
+		border-radius: 4px;
+		box-shadow: 0 1px 5px $cGreyMiddle25 inset;
+
+		&:focus {
+			border-color: $cGreyMiddle;
+			color: $cBlack;
+		}
+
+		@include breakpoint(small-screens) {
+			display: block;
+			width: 100%;
+			max-width: 300px;				// @TODO Magic Number
+			font-size: 16px;				// @TODO Magic Number
+		}
+	}
+
+	.form-btn {
+		display: block;
+		float: right;
+		width: 28%;
+		margin-left: 2%;
+		padding: 5px 5px 6px;
+		font-size: 12px;
+		line-height: 1;
+		text-decoration: none;
+		color: #ffffff;
+		background-color: $cBlue;
+		border: 0px solid #ffffff;
+		border-radius: 4px;
+		box-shadow: 0 1px 5px $cGreyMiddle;
+		text-shadow: 0px 1px 1px #666666;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $cYellow;
+			color: $cBlack;
+		}
+
+		@include breakpoint(small-screens) {
+			float: none;
+			width: 100%;
+			max-width: 300px;				// @TODO Magic Number
+			margin: 4px 0 0 0;
+			padding: 5px 5px 7px;
+			font-size: 11px;
+		}
+	}
+
+}
+
+
+
+// @end
+
+
+
+// bbmark -------------- Box Calendar --------------
+
+.calendar CAPTION {
+	font-size: inherit;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+.calendar #today {
+	background-color: #ffbb00;
+}
+.calendar TH {
+	font-weight: normal;
+	font-size: 12px;
+	border-bottom: 1px solid #aa993a;
+}
+.calendar TFOOT TR>TD {
+	text-align: left;
+}
+.calendar TD {
+	text-align:right;
+	padding: 2px;
+}
+
+
+// bbmark -------------- Box Home --------------
+DIV#badges { padding: 0; margin: 1em 0 0 0;}
+DIV#badges a:link, DIV#badges a:visited, DIV#badges a:active { border: 0;}
+
+
+
+
+

@@ -1,0 +1,410 @@
+
+
+.page-home .posting ASIDE {
+	display: none;
+}
+
+
+
+A.btn-more {
+	display: inline-block;
+	margin-bottom: 4px;
+	padding: 2px 4px;
+	background-color: $cBlack;
+	color: #ffffff;
+	text-decoration: none;
+	&:after {
+		content: ' >';
+		font-weight: bold;
+		font-size: 14px;
+	}
+	&:hover {
+		background-color: $cGrey;
+	}
+}
+
+
+
+
+.pager {
+	margin: 0 0 $sUnit;
+	padding: $sUnit/2 $sUnit; padding: 0.5rem 1rem;
+
+	@include fontFamily(sansserif);
+	font-size: 12px;
+	line-height: 1;
+	background-color: $cGreyLight;
+	border-bottom: 1px solid $cGreyMiddle10;
+	box-shadow: 0 -2px 4px $cGrey inset;
+	
+	.pager-item {
+		
+		A {
+			display: block;
+			color: $cGreyMiddle25;
+			text-decoration: none;
+			
+			&:hover {
+				color: $cBlue;
+			}
+		}
+	}
+
+	.prev,
+	.next {
+		position: relative;
+	}
+	.prev {
+		float: left;
+		A {
+			padding-left: 12px;
+
+			&:before {
+				position: absolute;
+				top: -3px;
+				left: 0;
+				content: '<';
+				font-size: 14px;
+			}
+		}
+	}
+	.next {
+		float: right;
+		A {
+			padding-right: 12px;
+
+			&:after {
+				position: absolute;
+				top: -2px;
+				right: 0;
+				content: '>';
+				font-size: 14px;
+			}
+		}
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.box-poll {
+	border: 1px solid #cccccc; 
+	width: 280px; 
+	float: right; 
+	margin: 0 0 1em 0.5em;
+}
+.componentHead {
+	font-weight: bold;
+}
+.componentContent {
+	margin: 0 0 0 8px;
+}
+#aas-tv {
+	position: fixed;
+	width: 238px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url('/_images/aas-tv-logo.png');
+}
+
+UL.liveblog LI {
+	font-size: 11px;
+line-height: 1.2em;
+}
+UL.liveblog LI strong {
+	display: none;
+}
+LI.Writer17197 {
+	border-left: 8px solid yellow;
+	list-style-type: none;
+	margin: 8px 0 8px -1.25em;
+	padding: 0 0 0 8px;
+	font-size: 12px;
+	line-height: 19px;
+}
+UL.liveblog LI.Writer17197 STRONG {
+	display: inline;
+}
+UL.liveblog LI.Writer17197 EM {
+	display: none;
+}
+
+.pds-vote-button {
+	margin-left: 8px !important;
+}
+
+
+.box-right {
+
+}
+
+.interview .question {
+	background-color: #000000;
+	color: #ffffff;
+	@include fontFamily(headline);
+	padding: 2px 8px 4px;
+	margin: 0.25em 0 0.75em 0;
+}
+.interview .question A {
+	background-color: #000000;
+	color: #cccccc;
+}
+.page-spezial .answer DIV {
+	margin: 0.75em 0;
+}
+
+.interview .person-answer {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 2px 10px 3px;
+	margin: 0 8px 0 0;
+	float: left;
+	clear: both;
+	-moz-border-radius-topleft: 10px;
+	-webkit-border-top-left-radius: 10px;
+}
+.interview .box-right {
+	width: 240px !important;
+	border-left: 1px solid #888899;
+	font-size: 11px;
+	line-height: 14px;
+	margin-bottom: 0;
+}
+.interview .box-right H3 {
+	background-color: #888899;
+	border: 0;
+	color: #ffffff;
+	margin: 0 0 8px;
+	@include fontFamily(sansserif);
+	font-size: 14px;
+	display: block;
+	text-transform: none;
+	padding: 2px 0 3px 8px;
+}
+.interview OL {
+	margin-top: 0;
+}
+.interview .box-right LI {
+	margin: 0 0 1em 8px;
+}
+
+.interview .person-1 { color: #d5ce66 }
+.interview .person-2 { color: #d55d9d }
+.interview .person-3 { color: #d59a5f }
+.interview .person-4 { color: #c3d548 }
+.interview .person-5 { color: #d56281 }
+.interview .person-6 { color: #87d55a }
+.interview .person-7 { color: #7fd5a0 }
+.interview .person-8 { color: #d5715e }
+.interview .person-9 { color: #7fd5cf }
+.interview .person-10 { color: #d562b8 }
+.interview .person-11 { color: #d59a5f }
+
+
+.rank { width: 2em;}
+.diff { width: 2em; text-align: center; color: #66686A !important }
+.gefuehlte-tabelle TD { background-color: #f2f3f5; color: #333333;}
+.good2 .diff { background-color: #8ae65c; }
+.good .diff { background-color: #c3e6a1; }
+.normal .diff { background-color: #e6e5cf; }
+.bad .diff { background-color: #e6c7b8; }
+.bad2 .diff { background-color: #e68673; }
+
+.UIIntentionalStory_Message, .UIIntentionalStory .location {
+	font-size: 10px;
+}
+
+.classic-wptouch-bg {
+	ASIDE.full-width {
+		width: 90% !important;
+		padding: 3% !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+.lt-ie7 {
+
+
+	BODY {
+		background-image: none;
+		background-color: #dae3e8;
+	}
+
+	#aas-tv {
+		background-image: none;
+		display: none;
+		position: absolute;
+		top: -999px;
+		left: -999px;
+	}
+
+	#navigator LI,
+	.posting-footer LI {
+		float: left;
+	}
+
+	.box-comments .comments-nr {
+		width: 60px;
+	}
+	.box-comments .comment-meta {
+		margin: 0 0 0 64px;
+		padding: 0 0 0 4px;
+	}
+
+	#comment-description .spalte {
+		margin-left: 6px;
+		margin-right: 6px;
+		padding: 0;
+	}
+
+
+
+	.comment-text BLOCKQUOTE {
+		padding: 0 !important;
+		margin: 0  !important;
+	}
+
+
+	.button,
+	#box-search INPUT#sa {
+		background-color: #222233;
+		background-image: none
+	}
+	#box-search INPUT#sa {
+		padding-top: 4px;
+	}
+	.button:hover,
+	#box-search INPUT#sa:hover {
+		background-color: #7bc818;
+		background-image: none;
+	}
+
+
+
+	#commentform .focus LABEL,
+	#commentform .hastext LABEL {
+		visibility: hidden;
+	}
+
+	.interview .box-right UL {
+		margin-left: 10px !important;
+	}
+
+
+
+
+	article, aside, figure, footer, header, hgroup, nav, section { display:block; }
+
+}
+
+
+
+
+
+.lt-ie8 {
+
+	.comment-date A:hover {
+		text-decoration: underline;
+		color: #ffffff !important;
+	}
+	.comment-date A {
+		color: #000000 !important;
+	}
+
+
+	#commentform .focus LABEL,
+	#commentform .hastext LABEL {
+		visibility: hidden;
+	}
+
+	#navigator LI,
+	.posting-footer LI {
+		float: left;
+	}
+
+	.picture,
+	.pictureleft,
+	.pictureright {
+		background-color: #000000;
+	}
+	.picture IMG,
+	.pictureleft IMG,
+	.pictureright IMG {
+		margin: 0px !important;
+	}
+	.bildunterschrift {
+		margin: 0px;
+		border: 0px none black;
+		padding: 0px 4px 4px 4px;
+	}
+
+	.interview .box-right UL {
+		margin-left: 10px !important;
+	}
+
+
+
+	article, aside, figure, footer, header, hgroup, nav, section { display:block; }
+
+
+
+	ARTICLE {
+		margin-bottom: 26px;
+	}
+
+}
+
+
+
+
+
+.lt-ie9 {
+	#commentform .focus LABEL,
+	#commentform .hastext LABEL {
+		visibility: hidden;
+	}
+
+	.bildunterschrift {
+		padding: 4px 4px 4px 4px;
+	}
+
+
+	article, aside, figure, footer, header, hgroup, nav, section { display:block; }
+
+	ARTICLE {
+		margin-bottom: 26px;
+	}
+}
+
+
+.lt-ie10 {
+
+}
+

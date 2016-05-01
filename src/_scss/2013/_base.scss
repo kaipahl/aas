@@ -1,0 +1,70 @@
+BODY {
+	background-image: url('/_img/body-bg-aas2010.png');
+	background-color: #ffffff;
+	background-repeat: repeat-x;
+	margin: 0; padding: 0;
+	font-size: 1em;
+	line-height: 1.2em;
+}
+
+A {
+	color: $cBlack;
+}
+
+B { font-weight: bold; color: #111a00;}
+
+STRONG { color: #111a00; font-weight: bold;}
+
+I { font-style: italic; }
+
+DFN { font-weight: bold; }
+
+CODE {
+	color: #886666;
+	font-family: Monaco, Courier, 'Courier New', monospace;
+}
+BLOCKQUOTE {
+	@include fontFamily(blockquote);
+	font-size: 13px;
+	color: #444450; 
+	margin: 0 0 6px 0;
+	padding: 16px 16px 0 13px;
+	border-left: 13px solid $cGreyMiddle10;
+	background-color: $cGrey;
+	
+	A {
+		background-color: #ccccd2 !important;
+	}
+}
+
+
+FORM { margin: 0; }
+HR {
+	background-color: $cGrey;
+	color: $cGrey;
+	height: 4px;
+	border: 0;
+	margin: 0 0 12px 0;
+}
+
+
+// @group ========= Generic ======== 
+
+
+.clearer { clear:both;}
+.spacer { clear:both; padding: 1.5em 0;}
+.hide { display: none; }
+
+
+.box-right {
+	float: right;
+	width: auto !important;
+	text-indent: 0 !important; 
+	margin-left: 12px;
+	margin-bottom: 10px;
+}
+
+
+// @end 
+
+

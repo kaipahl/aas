@@ -1,0 +1,19 @@
+$greyBgBox: 		#e6e9ea; // @todo
+$greyBgBoxDarker: 	#d0d5d8; // @todo
+$textColor:			#444450; // @todo
+
+$cMaxDark:		#000000;
+$cMaxLight:		#ffffff;
+$cYellow:		#ffee33;
+$cOrange:		#ff9500;
+$cGreen:		#bfff00;
+$cBlue:			#0077ff;
+$cRed:			#ff4200;
+$cBlack:		#383838;
+$cGrey:			#eeede5;
+
+$cGreyMiddle80:	mix($cBlack, $cGrey, 80%); // #5C5C5A
+$cGreyMiddle:	mix($cBlack, $cGrey, 67%); // #747371
+$cGreyMiddle25:	mix($cBlack, $cGrey, 25%); // #C0BFB9
+$cGreyMiddle10:	mix($cBlack, $cGrey, 10%); // #DBDAD3
+$cGreyLight:	mix($cGrey, $cMaxLight, 33%); // #F9F9F6

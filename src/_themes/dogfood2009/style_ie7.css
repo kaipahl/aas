@@ -1,0 +1,38 @@
+.comment-date A:hover {
+	text-decoration: underline;
+	color: #ffffff !important;
+}
+.comment-date A {
+	color: #000000 !important;
+}
+
+
+#commentform .focus LABEL,
+#commentform .hastext LABEL {
+	visibility: hidden;
+}
+
+#navigator LI,
+.posting-footer LI {
+	float: left;
+}
+
+.picture,
+.pictureleft,
+.pictureright {
+	background-color: #000000;
+}
+.picture IMG,
+.pictureleft IMG,
+.pictureright IMG {
+	margin: 0px !important;
+}
+.bildunterschrift {
+	margin: 0px;
+	border: 0px none black;
+	padding: 0px 4px 4px 4px;
+}
+
+.interview .box-right UL {
+	margin-left: 10px !important;
+}

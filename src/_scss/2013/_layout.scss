@@ -1,0 +1,74 @@
+
+.wrapper {
+	@include clearfix;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 996px;
+	background-color: #ffffff;
+}
+
+
+.col-content {
+	float: right;
+	width: 76%;
+	@include fontFamily(sansserif);
+	line-height: 1.2em;
+}
+
+.col-wrapper {
+	margin: 0 $sUnit; margin: 0 1rem;
+}
+
+
+.col-sidebar {
+	float: left;
+	width: 24%;
+	margin: 0;
+	padding: 0;
+
+	@media only braille { 
+		display: none;
+		visibility: hidden;
+	}
+
+	@media only tty { 
+		display: none;
+		visibility: hidden;
+	}
+
+	@media only braille { 
+		display: none;
+		visibility: hidden;
+	}
+}
+
+// ==============================================
+// Mobile
+@include breakpoint(small-screens) { 
+	.col-sidebar {
+		position: fixed;
+
+		.viewport-wrapper {
+			height: 100%;
+			border: 2px solid red;
+			overflow-y: auto; 
+		}
+	}
+	.col-wrapper {
+		margin-top: $sUnit;
+	}
+}
+
+// Tablet
+@media only screen and (min-width: $breakS + 1) and (max-width: $breakL - 1) { 
+	.col-sidebar {
+		width: 33%;
+	}
+	.col-content {
+		width: 67%;
+	}
+	.col-wrapper {
+		margin-top: $sUnit;
+	}
+}
+

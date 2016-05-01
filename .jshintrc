@@ -1,0 +1,19 @@
+{
+	"strict"		: true,
+	"browser"		: true,
+	"jquery"		: true,
+	"node"			: true,
+
+	"camelcase"		: true,
+	"quotmark"		: "single",
+	"indent"		: 4,
+	"eqeqeq"		: true,
+	"eqnull"		: false,
+	"nonbsp"		: true,
+
+	"curly"			: true,
+	"latedef"		: true,
+	"newcap"		: true,
+	"undef"			: true,
+	"unused"		: true
+}

@@ -1,0 +1,68 @@
+// @TODO: Wie reagiert die Site beim Drehen des iPhones?
+// @TODO: Kann Text-Ellipsis angewandt werden? (Sidebar, Headlines)
+// @TODO: Gibt es einen BOLD-Font-Stack Mobile für Sidebar-Kommentar-Titel?
+
+
+
+$fontsizeMain: 		16px;
+
+$fontSizeCopy:		13px; // @todo
+
+$sUnit: 			$fontsizeMain;
+
+$breakS: 480px;
+$breakL: 800px; // @todo Erst einmal nur ein Dummy-Wert.
+
+
+
+
+@mixin fontFamily ($family) {
+	@if $family == sansserif {
+		font-family: 'HelveticaNeue', 'Helvetica Neue', 'HelveticaNeueRoman', 'Helvetica Neue Roman', Helvetica, Arial, sans-serif;
+	} @else if $family == headline {
+		font-family: 'Arial Black', Arial, sans-serif;
+	} @else if $family == blockquote {
+		font-family: 'American Typewriter', 'Courier New', 'Lucida Console' Courier, monospace;
+	}
+}
+
+
+// Bsp: @include breakpoint(medium-screens) { width: 125px; }
+@mixin breakpoint($media) {
+	@if $media == small-screens {
+		@media only screen and (max-width: $breakS) { @content; }
+	}
+	@else if $media == medium-screens {
+		@media only screen and (min-width: $breakS + 1) and (max-width: $breakL - 1) { @content; }
+	}
+	@else if $media == large-screens {
+		@media only screen and (min-width: $breakL) { @content; }
+	}
+}
+
+
+.hide-for-small {
+	@include breakpoint(small-screens) { display: none !important; }
+}
+
+.show-for-small {
+	display: none;
+	@include breakpoint(small-screens) { display: block; }
+}
+
+
+/**
+ *  Entfernt Bullets und Margins/Paddings von Listen.
+ */
+.reset--list {
+	list-style: none;
+	text-indent: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.break {
+	width: 100%;
+	height: 0;
+}
+

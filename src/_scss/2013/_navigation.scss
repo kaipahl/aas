@@ -1,0 +1,49 @@
+
+/**
+ * Navigation
+ */
+
+
+
+
+.nav-elsewhere {
+	@include fontFamily(sansserif);
+	font-weight: bold;
+	font-size: 10px;
+	text-align: left;
+	
+	.nav-items {
+		background-color: $cBlack;
+	}
+
+	.nav-item {
+		display: inline-block;
+		padding: 1px 4px;
+		white-space: nowrap;
+
+		.lt-ie8 & {
+			display: inline;
+			white-space: normal;
+		}
+
+		@include breakpoint(small-screens) { 
+			display: block;
+			text-align: right;
+			border-bottom: 1px solid $cGreyMiddle;
+			white-space: normal;
+		}
+	}
+
+	A {
+		color: #ffffff; 
+		margin: 0;
+	}
+}
+
+
+
+
+
+
+
+
