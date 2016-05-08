@@ -28,7 +28,8 @@ A.btn-more {
 
 .pager {
 	margin: 0 0 $sUnit;
-	padding: $sUnit/2 $sUnit; padding: 0.5rem 1rem;
+	padding: $sUnit/2 $sUnit;
+	padding: 0.5rem 1rem;
 
 	@include fontFamily(sansserif);
 	font-size: 12px;
@@ -36,14 +37,14 @@ A.btn-more {
 	background-color: $cGreyLight;
 	border-bottom: 1px solid $cGreyMiddle10;
 	box-shadow: 0 -2px 4px $cGrey inset;
-	
+
 	.pager-item {
-		
+
 		A {
 			display: block;
 			color: $cGreyMiddle25;
 			text-decoration: none;
-			
+
 			&:hover {
 				color: $cBlue;
 			}
@@ -107,9 +108,9 @@ A.btn-more {
 
 
 .box-poll {
-	border: 1px solid #cccccc; 
-	width: 280px; 
-	float: right; 
+	border: 1px solid #cccccc;
+	width: 280px;
+	float: right;
 	margin: 0 0 1em 0.5em;
 }
 .componentHead {
@@ -320,7 +321,7 @@ UL.liveblog LI.Writer17197 EM {
 
 
 
-	article, aside, figure, footer, header, hgroup, nav, section { display:block; }
+	article, aside, figure, footer, header, nav, section { display:block; }
 
 }
 
@@ -357,12 +358,12 @@ UL.liveblog LI.Writer17197 EM {
 	.picture IMG,
 	.pictureleft IMG,
 	.pictureright IMG {
-		margin: 0px !important;
+		margin: 0 !important;
 	}
 	.bildunterschrift {
-		margin: 0px;
-		border: 0px none black;
-		padding: 0px 4px 4px 4px;
+		margin: 0;
+		border: 0 none black;
+		padding: 0 4px 4px 4px;
 	}
 
 	.interview .box-right UL {
@@ -371,7 +372,7 @@ UL.liveblog LI.Writer17197 EM {
 
 
 
-	article, aside, figure, footer, header, hgroup, nav, section { display:block; }
+	article, aside, figure, footer, header, nav, section { display:block; }
 
 
 
@@ -396,7 +397,7 @@ UL.liveblog LI.Writer17197 EM {
 	}
 
 
-	article, aside, figure, footer, header, hgroup, nav, section { display:block; }
+	article, aside, figure, footer, header, nav, section { display:block; }
 
 	ARTICLE {
 		margin-bottom: 26px;

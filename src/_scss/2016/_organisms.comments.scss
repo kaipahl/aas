@@ -1,20 +1,27 @@
-
-
-
-// @group ========= COMMENTS =========
-
-#comments {
+/**
+ * Wrapper for comments
+ */
+.o-box-comments {
+	@include clearfix();
 	margin: 64px 0 16px 0;
 }
 
 
-.comments-description {
-	background-color: $cGrey;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
+/**
+ * Text box for descriptions
+ */
+.m-comments-description {
+	@include clearfix();
+	width: 50%;
+
+	@include breakpoint(medium-screens) {
+		width: 100%;
+	}
+
 	padding: 8px;
 	font-size: 12px;
-	color: #9999aa;
+	color: $cGreyMiddle;
+	background-color: $cGrey;
 
 	H3 {
 		float: left;
@@ -24,7 +31,7 @@
 		@include fontFamily(sansserif);
 		font-weight: normal;
 
-		BIG {
+		STRONG {
 			font-size: 24px;
 			@include fontFamily(headline);
 			font-weight: normal;
@@ -35,7 +42,6 @@
 		padding: 0 0 0 4px;
 		line-height: 100%;
 		float: right;
-		border-left: 1px solid #ffffff;
 
 		A {
 			color: #9999aa;
@@ -44,82 +50,110 @@
 		A STRONG,
 		STRONG A,
 		STRONG {
-			color: #555566;
+			color: $cGreyMiddle80;
 		}
 	}
 
 }
+.m-comments-description-nocomments {
+	float: right;
+	width: 50%;
+	margin: 0 0 8px 16px;
 
-// @end
+	@include breakpoint(medium-screens) {
+		width: 100%;
+		margin: 0;
+	}
+
+	.wrapper {
+		padding: 8px;
+		font-size: 12px;
+		color: $cGrey;
+		background-color: $cBlack;
+	}
+	P {
+		margin: 0.5em 0;
+	}
+	OL {
+		margin: 8px 0 0;
+		padding-left: 1.1em;
+	}
+	A,
+	STRONG {
+		color: $cMaxLight;
+	}
+}
+.a-comments-description-title {
+	margin: 0 0 8px;
+}
 
 
-
-#commentlist {
+.m-comments {
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+
+}
+.m-comment-meta {
+	float: left;
+	margin: 0 16px 4px 0;
+	padding-left: 0;
+	background-color: $cGrey;
 }
 
-.comment {
+.dogfood .m-comment-meta {
+	background-color: $cOrange;
+}
+
+
+.m-comment {
+	@include clearfix();
 	margin: 0.5em 0 2em 0;
 }
 
-// @group ------ COMMENT:Meta ------
-#commentlist .comment-meta {
+.m-comment-date {
 	display: block;
-	margin: 0 0 4px 0;
-	position: relative;
-	background-color: $cGrey;
-	border-top-left-radius: 4px;
-	border-top-right-radius: 4px;
-}
-#commentlist .dogfood .comment-meta {
-	background-color: $cOrange;
-}
-.comment-date {
-	float: left;
 	margin: 0;
 	padding: 2px 0 0 8px;
 	width: 136px;
 	font-size: 11px;
 	line-height: 1;
 	text-align: left;
-	color: #aaaab8;
-	border-right: 1px solid #ffffff;
+
+	A {
+		display: block;
+		color: $cBlack;
+		padding: 1px 4px 2px 0;
+		text-decoration: none;
+		font-weight: bold;
+		text-transform: uppercase;
+		&:hover {
+			text-decoration: underline;
+			color: $cMaxDark;
+		}
+	}
 }
 
-.comment-date A {
-	display: block;
-	width: 140px;
-	color: #9999aa;
-	padding: 1px 4px 2px 0;
-	text-decoration: none;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-.comment-date A:hover {
-	text-decoration: underline;
-	color: #111122;
-}
-#commentlist .dogfood .comment-date {
+.m-comments .dogfood .m-comment-date {
 	color: #888892;
-	border-right: 1px solid #889988;
+
+	A { color: #888892; }
+
+	A:hover,
+	A:active { color: $cMaxDark; }
 }
-#commentlist .dogfood .comment-date A { color: #888892; }
-#commentlist .dogfood .comment-date A:hover,
-#commentlist .dogfood .comment-date A:active { color: #111122; }
 
 
-.comment-author {
-	padding: 0 8px 3px 4px;
-	font-size: 16px;
+.m-comment-author {
+	display: block;
+	padding: 2px 0 0 8px;
+	font-size: 14px;
 	color: $cBlack;
 	font-weight: bold;
-	float: left;
 	A,
 	A:hover {
-		display: block;
-		color: #111122;
+		color: $cMaxDark;
 	}
 }
 
@@ -133,10 +167,9 @@
 	right: 0;
 	background-color: #e2e2f0;
 }
-// @end
 
 
-.comment-text {
+.m-comment-text {
 	font-size: 13px;
 	line-height: 18px;
 	text-align: justify;
@@ -158,25 +191,11 @@
 
 	A:hover,
 	A:active {
-		background-color: #ffffff;
-		color: #000000;
+		background-color: $cMaxLight;
+		color: $cBlack;
 	}
 }
 
-
-
-#comments #description A:link,
-#comments #description A:visited {
-	color: #6d805d; // #44503a;
-	text-decoration: none;
-	border-bottom: 1px solid #6d805d;
-	background-color: transparent;
-}
-#comments #description A:active {
-	color: #111a00;
-	text-decoration: none;
-	background-color: transparent;
-}
 
 
 #trackbacks {
@@ -186,13 +205,19 @@
 
 
 
-#commentlist LI P {
+.m-comments LI P {
 	padding: 0;
 }
 
 
 
-// @group ======= COMMENT:Form ======
+
+
+
+/**
+ * Comments Form
+ */
+
 .box-comment-form {
 	padding: 6px 8px 8px 8px;
 	border-radius: 8px;
@@ -200,7 +225,7 @@
 
 	H4 {
 		color: #808089;
-		border-bottom: 0px solid #eeeeee;
+		border-bottom: 0 solid #eeeeee;
 		margin: 0 0 0.66em 0;
 		padding: 0;
 		font-size: 10px;
@@ -218,8 +243,8 @@
 .form-headline {
 	margin: 0 0 0.66em 0;
 	padding: 0;
-	color: #ffffff;
-	border-bottom: 0px solid #eeeeee;
+	color: $cMaxLight;
+	border-bottom: 0 solid #eeeeee;
 	font-size: 20px;
 }
 
@@ -290,7 +315,7 @@
 	border: 2px solid #ccccd2;
 }
 #commentform .focus .focus-switch {
-	background-color: #ffffff;
+	background-color: $cMaxLight;
 	border: 2px solid #666672;
 }
 #commentform .focus LABEL,
@@ -303,28 +328,24 @@
 	position: relative;
 	margin: 0;
 	padding: 8px 10px 10px 10px;
-	background-color: #222233;
-	background-image: url('/_img/button-bg-alpha.png');
-	background-repeat: repeat-x;
+	background: $cBlack url('/_img/button-bg-alpha.png') repeat-x;
 	border: 2px solid #999999;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 	-webkit-box-shadow: 0 0 5px #999999;
 	font-weight: bold;
 	font-size: 16px;
-	text-shadow: 0px 1px 1px #666666;
+	text-shadow: 0 1px 1px #666666;
 	line-height: 1;
 	text-decoration: none;
-	color: #9dfe1e;
+	color: $cGreen;
 	cursor: pointer;
 }
 .button:hover {
 	background-color: #7bc818;
 	background-image: url('/_img/button-bg-alpha-hover.png');
 	background-position: bottom;
-	color: #ffffff;
+	color: $cMaxLight;
 }
 
-// @end
 
-// @end
