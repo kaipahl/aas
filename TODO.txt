@@ -1,1 +1,3 @@
-* 20160508: Settings --> Discussion --> Attempt to notify any blogs linked to from the article
+* 20160508:
+	* Update to WP 4.5.2
+	* Settings --> Discussion --> Attempt to notify any blogs linked to from the article
