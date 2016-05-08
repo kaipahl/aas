@@ -295,7 +295,7 @@ class WebMentionPlugin {
 		$host = preg_replace( '/^www\./', '', $host );
 
 		// generate default text
-		$content = sprintf( __( 'This %s was mentioned on <a href="%s">%s</a>', 'webmention' ), $post_format, esc_url( $source ), $host );
+		$content = sprintf( __( 'Dieser Blogeintrag wurde auf <a href="%s">%s</a> erwähnt', 'webmention' ), $post_format, esc_url( $source ), $host );
 
 		return $content;
 	}
