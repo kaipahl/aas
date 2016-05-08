@@ -61,6 +61,13 @@
 	margin: 0 0 8px 16px;
 
 	@include breakpoint(medium-screens) {
+		float: none;
+		width: 100%;
+		margin: 0;
+	}
+
+	@include breakpoint(small-screens) {
+		float: none;
 		width: 100%;
 		margin: 0;
 	}
@@ -93,6 +100,12 @@
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+
+	@include breakpoint(medium-screens) {
+		display: block;
+		overflow: visible;
+		margin-top: 16px;
+	}
 
 }
 .m-comment-meta {
@@ -184,15 +197,17 @@
 	}
 	A:link,
 	A:visited {
+		padding: 1px 4px;
 		color: #444450;
 		background-color: #e2e2f0;
-		padding: 1px 4px;
+		word-break: break-all;
 	}
 
 	A:hover,
 	A:active {
 		background-color: $cMaxLight;
 		color: $cBlack;
+		word-break: break-all;
 	}
 }
 

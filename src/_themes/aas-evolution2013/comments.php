@@ -18,6 +18,8 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 <!-- You can start editing here. -->
 <div class="o-box-comments">
 
+	<h3 class="a-box-title">Reaktionen</h3>
+
 	<?php if ('open' == $commStatus) : ?>
 	<div class="m-comments-description">
 
