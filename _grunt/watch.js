@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 		},
 		theme: {
 			files: ['src/_themes/<%= config.themeName %>/**/*.php'],
-			tasks: ['buildTheme']
+			tasks: ['buildThemes']
 		},
 		js: {
 			files: ['src/_js/**/*.js'],
