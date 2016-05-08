@@ -16,6 +16,7 @@ module.exports = function (grunt) {
 		src: 'src',
 		dist: 'dist',
 		test: 'test',
+		plugins: 'drupal/wp-content/plugins',
 		theme: 'drupal/wp-content/themes',
 		themeName: 'aas-evolution2013'
 	});
@@ -24,6 +25,10 @@ module.exports = function (grunt) {
 	/*
 	 *  TASKS
 	 */
+
+	grunt.registerTask('buildPlugins', [
+		'copy:plugins'
+	]);
 
 	grunt.registerTask('buildThemes', [
 		'copy:themes'

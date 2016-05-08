@@ -10,6 +10,14 @@ module.exports = function (grunt) {
 				dest: 'dist/<%= config.theme %>/<%= config.themeName %>'
 			}]
 		},
+		plugins: {
+			files: [{
+				expand: true,
+				cwd: 'src/_plugins/',
+				src: '**',
+				dest: 'dist/<%= config.plugins %>'
+			}]
+		},
 		js: {
 			files: [{
 				expand: true,
