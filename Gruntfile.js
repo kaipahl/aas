@@ -27,6 +27,7 @@ module.exports = function (grunt) {
 	 */
 
 	grunt.registerTask('buildPlugins', [
+		'clean:plugins',
 		'copy:plugins'
 	]);
 
