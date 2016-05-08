@@ -2,8 +2,8 @@
 Contributors: automattic, nbachiyski, batmoo, johnjamesjacoby
 Tags: liveblog
 Requires at least: 3.5
-Tested up to: 3.5
-Stable tag: 1.3
+Tested up to: 4.5
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,25 @@ If you'd like to check out the code and contribute, [join us on github](https://
 8. Typical liveblog view
 
 == Changelog ==
+
+= 1.5 =
+
+* New "Key Events" feature
+* New "Lazyloading" feature
+* Improved escaping
+
+People who helped make this happen: Jason Agnew, Josh Betz, Sarah Blackstock, Stephane Boisvert, Ian Dunn, Scott Evans, Thorsten Frommen, Mark Goodyear, Chris Hardie, Philip John, Paul Kevan, Connor Parks
+
+= 1.4 =
+
+* Rich-text editing!
+* Archived liveblogs now display in chronological order (live ones show reverse chron)
+* New and udpated translations
+* Bump to fix SVN sync issues (thanks @kevinlisota)
+
+= 1.3.1 =
+
+* Fixed a bug where liveblog would show up in secondary loops
 
 = 1.3 =
 
