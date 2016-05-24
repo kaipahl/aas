@@ -48,17 +48,6 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 
 <!-- ============================================== -->
 
-	<div class="m-comments-description-nocomments">
-		<div class="wrapper">
-			<h4 class="a-comments-description-title">Wo kann man Kommentare eingeben?</h4>
-			<p>Nach elf Jahren habe ich die Kommentare im Blog mangels Zeit für Kommentarverwaltung geschlossen. Es kann noch kommentiert werden. Es ist aber etwas umständlicher geworden.</p>
-			<ol>
-				<li>Das Kommentarblog <strong><a href="http://allesausseraas.de/">http://allesausseraas.de/</a></strong>, aufgezogen von den Lesern Sternburg und OtherTimes</li>
-				<li>Sogenannte „<strong>Webmentions</strong>“ mit einem eigenen Blog. Siehe <a href="https://indiewebcamp.com/Webmention#Andy_Sylvester_with_WordPress_Webmention_plugin">IndieWebCamp</a></li>
-			</ol>
-		</div>
-	</div><!-- /.m-comments-description-nocomments -->
-
 
 	<?php if ($comments) : ?>
 
@@ -69,6 +58,18 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 		?>
 
 		<ol class="m-comments">
+
+			<li class="m-comments-description-nocomments">
+				<div class="wrapper">
+					<h4 class="a-comments-description-title">Wo kann man Kommentare eingeben?</h4>
+					<p>Nach elf Jahren habe ich die Kommentare im Blog mangels Zeit für Kommentarverwaltung geschlossen. Es kann noch kommentiert werden. Es ist aber etwas umständlicher geworden.</p>
+					<ol>
+						<li>Das Kommentarblog <strong><a href="http://allesausseraas.de/">http://allesausseraas.de/</a></strong>, aufgezogen von den Lesern <a href="https://twitter.com/sternburgexport">@sternburgexport</a> und <a href="https://twitter.com/jimmi2times">@jimmi2times</a></li>
+						<li>Sogenannte „<strong>Webmentions</strong>“ mit einem eigenen Blog. Siehe <a href="https://indiewebcamp.com/Webmention#Andy_Sylvester_with_WordPress_Webmention_plugin">IndieWebCamp</a></li>
+					</ol>
+				</div>
+			</li><!-- /.m-comments-description-nocomments -->
+
 		<?php foreach ($comments as $comment) : ?>
 			<?php
 				$comment_counter++;
@@ -100,7 +101,6 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 				$comment_date_markup .= '</a>';
 
 				$comment_author_markup = get_comment_author_link() . ' ';
-				$comment_edit_markup = '<a href="' . get_edit_comment_link('Edit') . '" class="a-btn-edit">Edit</a>';
 			?>
 
 			<li class="m-comment <?php comment_author() ?>" id="comment-<?php echo $comment_id; ?>">
@@ -115,7 +115,6 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 					</li>
 					<li class="m-comment-author">
 						<?php echo $comment_author_markup; ?>
-						<?php echo $comment_edit_markup; ?>
 					</li>
 				</ul><!-- /.m-comment-meta -->
 
