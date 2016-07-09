@@ -56,19 +56,13 @@
 
 }
 .m-comments-description-nocomments {
-	float: right;
-	width: 50%;
-	margin: 0 0 8px 16px;
+	margin-bottom: 8px;
 
 	@include breakpoint(medium-screens) {
-		float: none;
-		width: 100%;
 		margin: 0;
 	}
 
 	@include breakpoint(small-screens) {
-		float: none;
-		width: 100%;
 		margin: 0;
 	}
 
