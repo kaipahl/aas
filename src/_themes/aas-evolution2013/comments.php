@@ -48,6 +48,19 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 
 <!-- ============================================== -->
 
+	<ol class="m-comments">
+
+		<li class="m-comments-description-nocomments">
+			<div class="wrapper">
+				<h4 class="a-comments-description-title">Wo kann man Kommentare eingeben?</h4>
+				<p>Nach elf Jahren habe ich die Kommentare im Blog mangels Zeit für Kommentarverwaltung geschlossen. Es kann noch kommentiert werden. Es ist aber etwas umständlicher geworden.</p>
+				<ol>
+					<li>Das Kommentarblog <strong><a href="http://allesausseraas.de/">http://allesausseraas.de/</a></strong>, aufgezogen von den Lesern <a href="https://twitter.com/sternburgexport">@sternburgexport</a> und <a href="https://twitter.com/jimmi2times">@jimmi2times</a></li>
+					<li>Sogenannte „<strong>Webmentions</strong>“ mit einem eigenen Blog. Siehe <a href="https://indiewebcamp.com/Webmention#Andy_Sylvester_with_WordPress_Webmention_plugin">IndieWebCamp</a></li>
+				</ol>
+			</div>
+		</li><!-- /.m-comments-description-nocomments -->
+
 
 	<?php if ($comments) : ?>
 
@@ -56,19 +69,6 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 			$comment_counter = 0;
 			$comment_class = 'first';
 		?>
-
-		<ol class="m-comments">
-
-			<li class="m-comments-description-nocomments">
-				<div class="wrapper">
-					<h4 class="a-comments-description-title">Wo kann man Kommentare eingeben?</h4>
-					<p>Nach elf Jahren habe ich die Kommentare im Blog mangels Zeit für Kommentarverwaltung geschlossen. Es kann noch kommentiert werden. Es ist aber etwas umständlicher geworden.</p>
-					<ol>
-						<li>Das Kommentarblog <strong><a href="http://allesausseraas.de/">http://allesausseraas.de/</a></strong>, aufgezogen von den Lesern <a href="https://twitter.com/sternburgexport">@sternburgexport</a> und <a href="https://twitter.com/jimmi2times">@jimmi2times</a></li>
-						<li>Sogenannte „<strong>Webmentions</strong>“ mit einem eigenen Blog. Siehe <a href="https://indiewebcamp.com/Webmention#Andy_Sylvester_with_WordPress_Webmention_plugin">IndieWebCamp</a></li>
-					</ol>
-				</div>
-			</li><!-- /.m-comments-description-nocomments -->
 
 		<?php foreach ($comments as $comment) : ?>
 			<?php
