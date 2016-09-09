@@ -69,7 +69,7 @@ var aasToggler = {
 				$(this).addClass('nonexoten');
 			}
 
-			var pattTeamsport = /^\d?\dh\d\d((\s|[\240])–(\s|[\240])\d?\dh\d\d)? (HBL|BBL|DVL|Volleyball|Handball|Hockey|Basketball\/BBL|Basketball\/DBBL|Basketball\/Euro|Basketball\/NBBL|Basketball\/ProA|Basketball\/ProB|Basketball\/FIBA|DEL|Eishockey\/DEL|Eishockey\/EBEL|Eishockey\/CHL|Eishockey\/WM|Eishockey:|KHL|Rugby|American Football|Australian Football|Floor|Bandy|Baseball\/Bundesliga)/i;
+			var pattTeamsport = /^\d?\dh\d\d((\s|[\240])–(\s|[\240])\d?\dh\d\d)? (HBL|BBL|DVL|Volleyball|Handball|Hockey|Basketball\/(?!NBA|D-League|Summer League)|DEL|Eishockey\/DEL|Eishockey\/EBEL|Eishockey\/CHL|Eishockey\/WM|Eishockey:|KHL|Rugby|American Football|Australian Football|Floor|Bandy|Baseball\/Bundesliga)/i;
 			if (pattTeamsport.test(content)) {
 				$(this).addClass('teamsport');
 			}
