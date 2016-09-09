@@ -4,7 +4,7 @@
  * Plugin Name: Liveblog
  * Plugin URI: http://wordpress.org/extend/plugins/liveblog/
  * Description: Blogging: at the speed of live.
- * Version:     1.5
+ * Version:     1.5.1
  * Author:      WordPress.com VIP, Automattic
  * Author URI: http://vip.wordpress.com/
  * Text Domain: liveblog
@@ -78,8 +78,10 @@ final class WPCOM_Liveblog {
 		self::register_embed_handlers();
 
 		WPCOM_Liveblog_Entry_Key_Events::load();
+		WPCOM_Liveblog_Entry_Key_Events_Widget::load();
 		WPCOM_Liveblog_Entry_Extend::load();
 		WPCOM_Liveblog_Lazyloader::load();
+		WPCOM_Liveblog_Socketio_Loader::load();
 	}
 
 	public static function add_custom_post_type_support( $query ) {
@@ -111,6 +113,7 @@ final class WPCOM_Liveblog {
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-query.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-key-events.php' );
+		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-key-events-widget.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-extend.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-extend-feature.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-extend-feature-hashtags.php' );
@@ -118,6 +121,7 @@ final class WPCOM_Liveblog {
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-extend-feature-emojis.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-entry-extend-feature-authors.php' );
 		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-lazyloader.php' );
+		require( dirname( __FILE__ ) . '/classes/class-wpcom-liveblog-socketio-loader.php' );
 
 		// Manually include ms.php theme-side in multisite environments because
 		// we need its filesize and available space functions.
@@ -223,6 +227,20 @@ final class WPCOM_Liveblog {
 			flush_rewrite_rules();
 			update_option( 'liveblog_rewrites_version', self::rewrites_version );
 		}
+	}
+
+	/**
+	 * Returns the ID of the Liveblog post.
+	 *
+	 * @throws Exception when called before post ID is set
+	 * @return int Liveblog post ID
+	 */
+	public static function get_post_id() {
+		if ( is_null( self::$post_id ) ) {
+			throw new Exception( __( 'No Liveblog post ID is set yet', 'liveblog' ) );
+		}
+
+		return self::$post_id;
 	}
 
 	/**
@@ -378,6 +396,9 @@ final class WPCOM_Liveblog {
 		}
 		if ( empty( $post_id ) ) {
 			global $post;
+			if ( ! $post ){
+				return false;
+			}
 			$post_id = $post->ID;
 		}
 		$state = get_post_meta( $post_id, self::key, true );
@@ -465,13 +486,20 @@ final class WPCOM_Liveblog {
 			self::send_server_error( $entry->get_error_message() );
 		}
 
-		// Do not send latest_timestamp. If we send it the client won't get
-		// older entries. Since we send only the new one, we don't know if there
-		// weren't any entries in between.
-		self::json_return( array(
-			'entries'           => array( $entry->for_json() ),
-			'latest_timestamp'  => null
-		) );
+		if ( WPCOM_Liveblog_Socketio_Loader::is_enabled() ) {
+			WPCOM_Liveblog_Socketio::emit(
+				'liveblog entry',
+				$entry->for_json()
+			);
+		} else {
+			// Do not send latest_timestamp. If we send it the client won't get
+			// older entries. Since we send only the new one, we don't know if there
+			// weren't any entries in between.
+			self::json_return( array(
+				'entries'          => array( $entry->for_json() ),
+				'latest_timestamp' => null
+			) );
+		}
 	}
 
 	/**
@@ -614,15 +642,18 @@ final class WPCOM_Liveblog {
 		return $classes;
 	}
 
-	public static function admin_enqueue_scripts() {
-		wp_enqueue_style( self::key,  plugins_url( 'css/liveblog-admin.css', __FILE__ ) );
-		wp_enqueue_script( 'liveblog-admin',  plugins_url( 'js/liveblog-admin.js', __FILE__ ) );
-		wp_localize_script( 'liveblog-admin', 'liveblog_admin_settings', array(
-			'nonce_key' => self::nonce_key,
-			'nonce' => wp_create_nonce( self::nonce_key ),
-			'error_message_template' => __( 'Error {error-code}: {error-message}', 'liveblog' ),
-			'short_error_message_template' => __( 'Error: {error-message}', 'liveblog' ),
-		) );
+	public static function admin_enqueue_scripts( $hook_suffix ) {
+		// Enqueue admin scripts only if adding or editing a supported post type.
+		if ( in_array( $hook_suffix, array( 'post.php', 'post-new.php' ) ) && post_type_supports( get_post_type(), self::key ) ) {
+			wp_enqueue_style( self::key, plugins_url( 'css/liveblog-admin.css', __FILE__ ) );
+			wp_enqueue_script( 'liveblog-admin', plugins_url( 'js/liveblog-admin.js', __FILE__ ) );
+			wp_localize_script( 'liveblog-admin', 'liveblog_admin_settings', array(
+				'nonce_key'                    => self::nonce_key,
+				'nonce'                        => wp_create_nonce( self::nonce_key ),
+				'error_message_template'       => __( 'Error {error-code}: {error-message}', 'liveblog' ),
+				'short_error_message_template' => __( 'Error: {error-message}', 'liveblog' ),
+			) );
+		}
 	}
 
 	/**
@@ -663,7 +694,14 @@ final class WPCOM_Liveblog {
 				wp_enqueue_script( 'editor' );
 			}
 			wp_enqueue_script( 'liveblog-publisher', plugins_url( 'js/liveblog-publisher.js', __FILE__ ), array( self::key ), self::version, true );
-			wp_enqueue_script( 'liveblog-plupload', plugins_url( 'js/plupload.js', __FILE__ ), array( self::key, 'wp-plupload', 'jquery' ) );
+			
+			wp_register_script( 'liveblog-plupload', plugins_url( 'js/plupload.js', __FILE__ ), array( self::key, 'wp-plupload', 'jquery' ) );
+			wp_localize_script( 'liveblog-plupload', 'liveblog_plupload', apply_filters( 'liveblog_plupload_localize', array(
+				'browser' => '#liveblog-messages',
+				'dropzone' => '#liveblog-container',
+				'container' => false,
+			) ) );
+			wp_enqueue_script( 'liveblog-plupload' );
 			self::add_default_plupload_settings();
 		}
 
@@ -674,11 +712,19 @@ final class WPCOM_Liveblog {
 			wp_enqueue_script( 'jquery.spin', plugins_url( 'js/jquery.spin.js', __FILE__ ), array( 'jquery', 'spin' ), '1.3' );
 		}
 
+		if ( wp_script_is( 'jetpack-twitter-timeline', 'registered' ) ) {
+			wp_enqueue_script( 'jetpack-twitter-timeline' );
+		} else {
+			wp_enqueue_script( 'liveblog-twitter-timeline', plugins_url( 'js/twitter-timeline.js', __FILE__ ), false, '1.5, true' );
+		}
+
 		wp_localize_script( self::key, 'liveblog_settings',
 			apply_filters( 'liveblog_settings', array(
 				'permalink'              => get_permalink(),
 				'post_id'                => get_the_ID(),
 				'state'                  => self::get_liveblog_state(),
+				'is_liveblog_editable'   => self::is_liveblog_editable(),
+				'socketio_enabled'       => WPCOM_Liveblog_Socketio_Loader::is_enabled(),
 
 				'key'                    => self::key,
 				'nonce_key'              => self::nonce_key,
@@ -849,7 +895,10 @@ final class WPCOM_Liveblog {
 		ob_start();
 		extract( $template_variables );
 		$theme_template = get_template_directory() . '/liveblog/' . ltrim( $template_name, '/' );
-		if ( file_exists( $theme_template ) ) {
+		$child_theme_template = get_stylesheet_directory() . '/liveblog/' . ltrim( $template_name, '/' );
+		if ( file_exists( $child_theme_template ) ) {
+			include( $child_theme_template );
+		} else if ( file_exists( $theme_template ) ) {
 			include( $theme_template );
 		} else if( self::$custom_template_path && file_exists( self::$custom_template_path . '/' . $template_name ) ) {
 			include( self::$custom_template_path . '/' . $template_name );
