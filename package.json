@@ -14,7 +14,11 @@
     "grunt-contrib-watch": "~0.4.4",
     "grunt-newer": "^1.1.1",
     "grunt-postcss": "^0.7.1",
+    "karma": "^1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-qunit": "^1.2.0",
     "load-grunt-config": "^0.19.1",
+    "qunitjs": "^2.0.1",
     "time-grunt": "^1.0.0"
   }
 }
