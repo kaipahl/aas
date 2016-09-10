@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Mocha Tests for aasToggler</title>
+		<link rel="stylesheet" href="lib/mocha/mocha.css">
+		<script src="../src/_js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<div id="mocha"></div>
+
+		<script src="lib/mocha/mocha.js"></script>
+		<script src="lib/chai.js"></script>
+		<script>mocha.setup('bdd')</script>
+		<!-- assertion framework -->
+		<script>var expect = chai.expect</script>
+
+
+		<!-- START test markup -->
+		<div id="mocha-fixture" style="position: absolute; right: 9000px;">
+
+			<div class="wrapper">
+
+				<a href="#main-content" class="show-screenreader">Zum Inhalt springen</a>
+
+
+				<div class="col-sidebar sidebar-left" role="banner">
+
+					<section class="box box-logo first">
+						<a href="/" title="Homepage des Sportblogs allesaussersport" class="logo-link"><img src="_img/logo-aas2013.png" alt="Logo" class="logo-image" /></a>
+					</section>
+
+					<nav class="nav-elsewhere">
+						<h3 class="box-title js-accordeon-title show-for-small">Navigation</h3>
+						<ul class="nav-items reset--list">
+							<li class="nav-item"><a href="/fulltext" title="Alternative Homepage">Homepage Fulltext</a></li><li class="nav-item"><a href="/impressum/" title="Impressum">Impressum</a></li>
+							<li class="nav-item"><a href="/about-allesaussersport" title="Über die Website">Über <em>aas</em></a></li>
+							<li class="nav-item"><a href="https://twitter.com/aasport" title="News via Twitter-Account von allesaussersport">Twitter @aasport</a></li>
+							<li class="nav-item"><a href="https://alpha.app.net/aasport" title="News via App.net-Account von allesaussersport">App.net @aasport</a></li>
+							<li class="nav-item"><a href="https://www.facebook.com/pages/allesaussersport/182601149731" title="Facebook-Account">Facebook</a></li>
+							<li class="nav-item"><a href="https://plus.google.com/b/108439196600039005324/" title="Google Plus-Account" rel="publisher">Google+</a></li>
+						</ul>
+					</nav>
+
+
+					<!--
+						<section class="box box-comments">
+							<h3 class="box-title">Letzte Kommentare</h3>
+							<ul class="comments-list box-content reset~~list">
+										</ul>
+						</section>
+					 -->
+
+
+					<!-- ... Suche ........... -->
+					<section class="box box-archives box-search" id="box-search" role="search">
+						<h3 class="box-title">Suche im Archiv</h3>
+						<ul class="box-content reset--list">
+							<li>
+								<!-- Google CSE Search Box Begins  -->
+								<form action="http://www.allesaussersport.de/suchergebnisse/" id="searchbox_007334066523813962139:i09xlzgtdiw">
+									<input type="hidden" name="cx" value="007334066523813962139:i09xlzgtdiw" />
+									<input type="hidden" name="cof" value="FORID:11" />
+									<input type="hidden" name="filter" value="0" />
+									<input type="hidden" name="safe" value="off" />
+									<div class="form-line">
+										<input type="text" name="q" id="q" class="form-text" />
+										<input type="submit" name="sa" id="sa" value="Suchen" class="form-btn btn btn-small" />
+									</div>
+								</form>
+								<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_007334066523813962139%3Ai09xlzgtdiw"></script>
+								<!-- Google CSE Search Box Ends -->
+							</li>
+						</ul>
+					</section>
+
+
+					<!-- ... Tags ........... -->
+					<section class="box box-archives hide-for-small">
+						<h3 class="box-title">Tag-Cloud</h3>
+						<ul class="box-content reset--list">
+							<li><a href="/tags/" title="Tag Cloud von allesaussersport">Liste aller verwendeten Tags</a></li>
+						</ul>
+					</section>
+
+
+
+					<!-- ... Kategorien ........... -->
+
+
+
+
+
+					<!-- #bbmark ........... START Die Site ........... -->
+					<section class="box box-archives box-feeds hide-for-small">
+						<h3 class="box-title">Feeds</h3>
+						<ul class="box-content feed-items">
+							<li class="feed-item">Full-Text-Feeds im <a href="/feed/" title="Full-Text-Feed" rel="alternate">RSS2.0-</a>, <a href="/feed/rdf/" title="Full-Text-Feed" rel="alternate">RDF-</a> und <a href="/feed/atom/" title="Full-Text-Feed" rel="alternate">Atom-Format</a></li>
+							<li class="feed-item">Gekürzter Feed im <a href="/feed/rss/" title="Gekürzter Feed" rel="alternate">RSS0.92-Format</a></li>
+							<li class="feed-item">Kommentare als <a href="/comments/feed/" title="Full-Text-Feed der Kommentare" rel="alternate">RSS2.0-Feed</a></li>
+						</ul>
+					</section>
+
+
+				</div><!-- /.col-sidebar -->
+
+
+
+				<div class="col-content" role="main">
+
+
+
+					<ul class="pager reset--list clearfix">
+						<li class="pager-item prev">
+							<a href="http://www.allesaussersport.de/archiv/2016/09/08/screensport-am-donnerstag-402/" rel="prev">Ältere Texte</a>		</li>
+
+						<li class="pager-item next">
+						</li>
+					</ul><!-- /.pager -->
+
+
+					<div class="col-wrapper">
+
+						<a name="main-content" class="show-screenreader"></a>
+
+
+						<article class="posting">
+
+							<header class="posting-head">
+								<div class="meta clearfix">
+									<span class="date"><a href="http://www.allesaussersport.de/archiv/2016/09/09/screensport-am-freitag-251/" rel="bookmark" title="Permanent Link: Screensport am Freitag">9.9.2016, 10:02</a> <a href="http://www.allesaussersport.de/archiv/2016/09/09/screensport-am-freitag-251/#respond" title="Zu den Kommentaren">kein Kommentar</a> <a class="post-edit-link" href="http://www.allesaussersport.de/drupal/wp-admin/post.php?post=56234&#038;action=edit">Edit</a></span><span class="category"><a href="http://www.allesaussersport.de/content/sport/" rel="category tag">Sport</a> <a href="http://www.allesaussersport.de/content/media/sport-im-tv/" rel="category tag">Sport im TV</a></span>
+								</div>
+								<h1 class="post-title"><a href="http://www.allesaussersport.de/archiv/2016/09/09/screensport-am-freitag-251/">Screensport am Freitag</a></h1>
+							</header><!-- /.headline -->
+
+							<div class="posting-content">
+								<p>Moinsen. Ich habe bislang schon zweieinhalb Stunden Spaß gehabt, „alle“ Streams für das Wochenende einzusammeln. Ich habe mal quick&#8217;n&#8217;dirty versucht, die Zahl der offiziell in Deutschland zugänglichen Übertragungen heute und morgen (TV + Stream, Free + Pay), also alles was in Screensport steht, zusammenzurechnen: mind. 293 Übertragungen stehen heute und morgen an.</p>
+								<p>Aus Sicht einzelner Sportklubs, -ligen oder -verbände, ist das ein Verdrängungswettkampf – zumal ein immer geringerer werdender Anteil über lineare Kanäle abgebildet und promotet wird, sondern mehr oder weniger in Portale reingeklatscht wird, die gezielt von Zuschauern angesteuert werden müssen. </p>
+								<hr />
+								<p>Ich fange aber mit einem Event an, von dem es anscheinend keinen Bewegtbild-Stream gibt, sondern nur die gute alte Audioreportage – auf meinsportradio.de: heute beginnt die <strong>Baseball-EM</strong> in den Niederlande. Die Eröffnungspartie ist <strong>Deutschland – Schweden</strong> ab 11 Uhr und wird auf meinsportradio.de kommentiert von Tim Collins und Ty Eriksen. Zweite Übertragung ist heute ab 19 Uhr <strong>Großbritannien gegen Niederlande</strong>. Bei meinsportradio.de gibt es <a href="https://meinsportradio.de/baseball-em2016">eine Übersichtsseite</a> mit den geplanten Übertragungen – zwei pro Spieltag in der Gruppenphase.</p>
+								<hr />
+								<p>Jahrelang war die AFL – <strong>Australian Football League</strong> Stammgast des Freitag- oder Samstagvormittags bei EUROSPORT2. Dieses Jahr gab es zum ersten Mal seit langer Zeit keine Übertragungen mehr aus der Hauptrunde. </p>
+								<p>Die Hauptrunde ist nun nach 22 Spieltagen ausgespielt und seit gestern wird die erste Playoff-Runde ausgetragen. EURO2 zeigt heute ab 11h45 im sogenannten „Qualifying Final“ <strong>Geelong Cats – Hawthorn</strong>, also den Hauptrunden-Zweiten gegen den Dritten. Der Sieger wandert ins „Preliminary Final“ genannte Halbfinale, während der Verlierer in das „Semi-Final“ genannte Viertelfinale noch eine Chance zum Einzug in ein Halbfinale bekommt.</p>
+								<p>Auch für das nächste Wochenende ist eine Übertragung eines der beiden „Semi Finals“ geplant.</p>
+								<hr />
+								<p>Bei den <strong>US Open im Tennis</strong> gibt es heute die beiden Halbfinals bei den Männern und zumindest das erste Halbfinale läuft auch zu einer Zeit für Nicht-Schlafgestörte: ab 21 Uhr <strong>Djokovic gegen Gael Monfils</strong>, gefolgt von <strong>Wawrinka – Nishikori</strong> – beide Spiele auf EURO1.</p>
+								<h3>Sektion Leder</h3>
+								<p>Bundesliga… äh, wo waren wir stehen geblieben (was für eine beknackte Idee, dieser erste Länderspielblock Ende August/Anfang September)?</p>
+								<p><strong>Schalke 04 – Bayern München</strong> macht ab 20h30 den zweiten Spieltag auf. Während Bayern seinen Pflicht-Kantersieg herausspielte, bot Schalke per Niederlage in Frankfurt die vielleicht größte Überraschung des ersten Spieltags. Weinzierl und Heidel heute mit ihrem ersten Heimspiel.</p>
+								<p>Schalke – Bayern ist dabei nur der Auftakt zu zwei Fußball-Tagen mit Ansetzungen, die sich gewaschen haben. </p>
+								<p>Heute gibt es das Spitzenspiel aus der Ukraine ab 20 Uhr: <strong>Schachtjor Donezk – Dynamo Kiew</strong> – #1 gegen #2 in der Ukraine. Schachtjor befindet sich im Umbruch, nach dem der langjährige Coach Mircea Lucescu nach zwölf Jahren zu Zenit St. Petersburg gegangen ist. Sein Nachfolger ist Paulo Fonseca, der sich bis dato durch die portugiesische Liga durch trainiert hat (u.a. Porto, Braga…).</p>
+								<p>Der Umbruch machte sich auch im Ausscheiden in der CL-Quali gegen die Young Boys Bern bemerkbar – Gladbach hat die Qualitäten der Young Boys etwas anders als Schachtjor einsortiert.</p>
+								<p>Schachtjor Donezk – Dynamo Kiew heute ab 20 Uhr bei Sportdigital und auf DAZN.</p>
+								<p>DAZN bringt heute wieder viel „Kleinkram“: vier Spiele aus der Ligue 2, Spiele aus der serbischen und belgischen Liga und aus der Championship.</p>
+								<p>Aus der Ligue 1 zeigt DAZN heute ab 20h45 <strong>Paris Saint-Germain – AS Saint-Etienne</strong>. Der PSG unterlag am letzten Spieltag mit 1:3 in Monaco. St. Etienne macht dort weiter, wo sie letzte Saison aufgehört haben: pure Inkonstanz. In den ersten drei Spieltagen haben sie schon alle möglichen Spielausgänge abgefrühstückt: Niederlage in Bordeaux, Sieg gegen Montpellier und Unentschieden gegen Toulouse. </p>
+								<p><!-- ============================================== --></p>
+								<div class="programmes">
+									<h3>Freitag, 09.09.2016</h3>
+									<p><strong>9h00 Beachvolleyball/Smart Beachtour: Timmendorfer Strand</strong>, Laola1.tv | <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p><strong>9h00 Tischtennis/World Tour, Challenge Series: Belarus Open</strong>, Laola1.tv live<br />
+										* Stream von zwei Tischen</p>
+									<p><strong>9h00 – 11h45 Motorsport/MotoGP: Misano</strong>, Freies Training, EURO1 live<br />
+										&#8212; 9h: Moto3<br />
+										&#8212; 9h45: MotoGP<br />
+										&#8212; 10h45: Moto2</p>
+									<p><strong>11h00 – 13h00 Volleyball/M, U20-EM: Deutschland – Serbien</strong>, Laola1.tv live</p>
+									<p><strong>11h45 – 14h30 Australian Football: Geelong Cats – Hawthorn</strong>, Qualifying Final, EURO2 live </p>
+									<p><strong>11h55 – 13h40 Rugby League/NRL: Brisbane Broncos – Goldcoast Jetstar Titans</strong>, DAZN/$ live</p>
+									<p><strong>13h00 – 16h00 Motorsport/MotoGP: Misano</strong>, Freies Training, EURO1 live<br />
+										&#8212; 13h: Moto3<br />
+										&#8212; 14h: MotoGP<br />
+										&#8212; 15h: Moto2</p>
+									<p><strong>13h00 Darts/European Darts Tour: Mülheim</strong>, <a href="http://www.laola1.tv/">Laola1.tv</a> live</p>
+									<p><strong>13h00 Rollhockey/U17-EM: Israel &#8211; Österreich</strong>, Platz 9, <a href="https://www.youtube.com/channel/UCjUBgw3RIYYbivfVcXP83Yg/videos?flow=grid&#038;view=2">youtube.com</a> live</p>
+									<p><strong>13h15 – 13h45 Doku: Pole Position</strong>, #10/10, EinsPlus<br />
+										&#8212; Doku über Nachwuchsrennfahrerinnen.</p>
+									<p><strong>13h30 Volleyball/M, U20-EM: Bulgarien – Türkei</strong>, Laola1.tv live</p>
+									<p><strong>14h00 Billard: Open Soltau</strong>, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p><strong>14h00 – 16h30 Eishockey/KHL: Nachmittagsspiele</strong>, Laola1.tv live<br />
+										&#8212; 14h00: Metallurg Novokuznetsk – HC Slovan Bratislava<br />
+										&#8212; 14h30: Sibir Novosibirsk Region – Medvescak Zagreb</p>
+									<p><strong>14h30 – 16h15 Paralympics 2016: Rohlstuhlbasketball</strong>, sportschau.de live<br />
+										&#8212; Männer: USA–<strong>GER</strong> </p>
+									<p><strong>15h00 Rollhockey/U17-EM: Andorra – Schweiz</strong>, Platz 5–8, <a href="https://www.youtube.com/channel/UCjUBgw3RIYYbivfVcXP83Yg/videos?flow=grid&#038;view=2">youtube.com</a> live</p>
+									<p><strong>15h30 – 18h30 Golf/European Tour: KLM Open</strong>, #2/4, SKY Sport 1 live</p>
+									<p><strong>16h00 – 17h45 Radsport: Vuelta</strong>, #19/21, EURO1 live<br />
+										* EURO1: Nachberichte bis 18h</p>
+									<p><strong>16h00 – 18h00 Handball/F, CL-Quali: HC Leipzig – HC Gomel</strong>, Laola1.tv live</p>
+									<p><strong>16h00 Volleyball/M, U20-EM: Polen – Russland</strong>, Halbfinale #1, Laola1.tv live</p>
+									<p><strong>16h15 – 18h00 Paralympics 2016: Leichtathletik</strong>, sportschau.de live</p>
+									<p><strong>17h00 Volleyball/F, Potsdam Masters: Weißrussland – Samsun Anakent</strong>, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p><strong>17h00 Rollhockey/U17-EM: Italien – England</strong>, Platz 5–8, <a href="https://www.youtube.com/channel/UCjUBgw3RIYYbivfVcXP83Yg/videos?flow=grid&#038;view=2">youtube.com</a> live</p>
+									<p><strong>17h00 – 19h00 Fußball/BLR: Torpedo Zhodino – FC Vitebsk</strong>, #21, Laola1.tv live</p>
+									<p><strong>18h00 – 20h00 Tennis: US Open</strong>, Finale/Mixed, EURO1 live<br />
+										&#8212; #7 Vandeweghe/Ram–<strong>Siegemund</strong>/Pavic</p>
+									<p><strong>18h00 – 22h00 Eishockey/CHL: Vorabendspiele</strong>, #9, SPORT1 | SPORT1+/$ | Laola1.tv live<br />
+										&#8212; 18h00: KalPa Kuopio – Vienna Capitals [Laola1]<br />
+										&#8212; 19h00: Lorenskog IK – TPS Turku [Laola1]<br />
+										&#8212; 19h00: HV 71 Jönköping – RB Salzburg [Laola1]<br />
+										&#8212; 19h00: Växjö Lakers – Yunost Minsk [Laola1]<br />
+										&#8212; 19h00: Esbjerg Energy – IFK Helsinki [Laola1]<br />
+										<strong>&#8212; 19h30: RB München – HC Orli Znojmo [SPORT1+ | Laola1]</strong><br />
+										<strong>&#8212; 20h00: Frölunda Göteborg – Grizzlys Wolfsburg [SPORT1 | Laola1]</strong> </p>
+									<p><strong>18h30 – 20h30 Fußball/Zweite Liga: Freitagsspiele</strong>, #4, SKY Sport Bundesliga live<br />
+										&#8212; 18h30: VfB Stuttgart – 1.FC Heidenheim<br />
+										&#8212; 18h30: Erzgebirge Aue – Eintracht Braunschweig<br />
+										&#8212; 18h30: Würzburger Kickers – VfL Bochum</p>
+									<p><strong>18h30 Fußball/Dritte Liga: Freitagsspiele</strong>, #6, mdr.de | ndr.de live<br />
+										&#8212; 18h30: Halle – Preußen Münster [mdr.de]<br />
+										&#8212; 19h: VfL Osnabrück – Wehen-Wiesbaden [ndr.de]</p>
+									<p><strong>18h30 – 20h30 Fußball/AUT, 2te Liga: Vorabendspiele</strong>, #8, SKY Sport Austria/$ live<br />
+										&#8212; 18h30: Wiener Neustadt – Austria Lustenau<br />
+										&#8212; 18h30: SV Horn – Wacker Innsbruck<br />
+										&#8212; 18h30: Wattens – Liefering<br />
+										&#8212; 18h30: FC Blau Weiß Linz – Kapfenberg</p>
+									<p><strong>18h30 – 20h30 Handball/F, CL-Quali: Hypo Niederösterreich – Balonmano Bera Bera</strong>, Laola1.tv live</p>
+									<p><strong>18h30 – 20h30 Eishockey/KHL: ZSKA Moskau – SKA St Petersburg</strong>, Laola1.tv live</p>
+									<p><strong>18h30 Volleyball/M, U20-EM: Italien – Ukraine</strong>, Halbfinale #2, Laola1.tv live</p>
+									<p><strong>19h00 Rollhockey/U17-EM: Spanien – Deutschland</strong>, Halbfinale #1, <a href="https://www.youtube.com/channel/UCjUBgw3RIYYbivfVcXP83Yg/videos?flow=grid&#038;view=2">youtube.com</a> live</p>
+									<p><strong>19h05 – 19h45 Doku: Pole Position</strong>, #10/10, EinsPlus<br />
+										&#8212; Doku über Nachwuchsrennfahrerinnen.</p>
+									<p><strong>19h15 – 21h15 Handball/AUT: Bregenz Handball – Krems</strong>, #2, Laola1.tv live</p>
+									<p><strong>19h30 Volleyball/F, Potsdam Masters: SC Potsdam – St. Petersburg</strong>, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p><strong>20h00 – 22h00 Leichtathletik/Diamond League: Brüssel</strong>, EURO2 live </p>
+									<p><strong>20h00 Fußball/UKR: Schachtjor Donezk – Dynamo Kiew</strong>, #7, Sportdigital/$ | DAZN/$ live<br />
+										* Sportdigital: Vorberichte ab 19h50</p>
+									<p><strong>20h00 – 22h00 Fußball/SRB: Rad Beograd – Vojvodina</strong>, DAZN/$ live</p>
+									<p><strong>20h00 – 22h00 Fußball/Ligue 2: Abendspiele</strong>, DAZN/$ live<br />
+										&#8212; 20h00: Amiens – Tours<br />
+										&#8212; 20h00: Brest – Clermont<br />
+										&#8212; 20h00: Reims – Ajaccio<br />
+										&#8212; 20h00: Auxerre – Sochaux</p>
+									<p><strong>20h15 – 22h00 Paralympics 2016: Rohlstuhlbasketball</strong>, sportschau.de live<br />
+										&#8212; Frauen: <strong>GER</strong>–BRA</p>
+									<p><strong>20h15 – 22h15 Fußball/SLV: NK Domzale – NK Aluminij</strong>, #8, Laola1.tv live</p>
+									<p><strong>20h30 – 22h30 Fußball/Bundesliga: Schalke 04 – Bayern München</strong>, #2, SKY Sport Bundesliga live</p>
+									<p><strong>20h30 – 22h30 Fußball/AUT, 2te Liga: FAC Wien – LASK Linz</strong>, #8, SKY Sport Austria/$ live</p>
+									<p><strong>20h30 – 22h30 Fußball/BEL: Waasland-Beveren – Club Brügge</strong>, DAZN/$ live</p>
+									<p><strong>20h30 – 22h30 Fußball/Serie B: AC Cesena – Carpi FC 1909</strong>, #3, Laola1.tv live</p>
+									<p><strong>20h45 – 22h45 Fußball/La Liga: R. Sociedad – Espanyol</strong>, #3, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p><strong>20h45 – 22h45 Fußball/Ligue 1: Paris Saint-Germain – AS Saint-Etienne</strong>, #4, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p><strong>21h00 – 23h00 Fußball/Championship: Reading – Ipswich Town</strong>, #6, DAZN/$ live</p>
+									<p><strong>21h00 – 3h00 Tennis: US Open</strong>, Halbfinals/M, EURO1 live<br />
+										&#8212; #1 Djokovic–#10 Monfils<br />
+										&#8212; #3 Wawrinka–#6 Nishikori</p>
+									<p><strong>21h00 Rollhockey/U17-EM: Portugal – Italien</strong>, Halbfinale #2, <a href="https://www.youtube.com/channel/UCjUBgw3RIYYbivfVcXP83Yg/videos?flow=grid&#038;view=2">youtube.com</a> live</p>
+									<p><strong>21h15 – 23h00 Rugby/Premiership: Sale Sharks – Harlequins</strong>, DAZN/$ live</p>
+									<p><strong>22h00 – 1h00 Golf/US PGA-Tour: BMW Championship</strong>, #2/4, SKY Sport 1 live</p>
+									<p><strong>22h45 – 24h00 Talk/Fußball: 08000 &#8211; du bist dr@uf!</strong>, SKY Bundesliga 1 live</p>
+									<p><strong>23h00 – 3h00 Paralympics 2016: Abendsessions</strong>, ZDF live</p>
+									<p><strong>1h00 Eishockey/Test: USA – Kanada</strong>, SPORT1 US/$ live </p>
+									<p><strong>1h05 – 7h30 Baseball/MLB: Freitagsspiele</strong>, MLB.tv/$ live<br />
+										&#8212; 1h05: Pittsburgh Pirates – Cincinnati Reds<br />
+										&#8212; 1h05: Washington Nationals – Philadelphia Phillies<br />
+										&#8212; 1h05: NY Yankees – Tampa Bay Rays<br />
+										&#8212; 1h07: Toronto Blue Jays – Boston Red Sox<br />
+										&#8212; 1h10: Detroit Tigers – Baltimore Orioles<br />
+										&#8212; 1h10: Miami Marlins – LA Dodgers<br />
+										&#8212; 1h35: Atlanta Braves – NY Mets<br />
+										&#8212; 2h10: Houston Astros – Chicago Cubs<br />
+										&#8212; 2h10: Minnesota Twins – Cleveland Indians<br />
+										&#8212; 2h10: Chicago White Sox – Kansas City Royals<br />
+										&#8212; 2h15: St. Louis Cardinals – Milwaukee Brewers<br />
+										&#8212; 3h40: Arizona Diamondbacks – San Francisco Giants<br />
+										&#8212; 4h05: Oakland Athletics – Seattle Mariners<br />
+										&#8212; 4h05: LA Angels – Texas Rangers<br />
+										&#8212; 4h40: San Diego Padres – Colorado Rockies</p>
+									<p><strong>2h00 College Football: Syracuse Orange – #13 Louisville Cardinals</strong>, #2, <a href="http://www.espnplayer.com">espnplayer.com/$</a> live</p>
+									<p><strong>3h00 Kampfsport/Boxen: Jacobs – Mora II</strong>, DAZN/$ live</p>
+									<p><strong>5h00 Kampfsport: Glory 33 aus New Jersey</strong>, DAZN/$ | ran FIGHTING/$ live</p>
+									<p><em>Der jeweilige Sendetag geht von 6h bis 6h den nächsten Morgen.</em><br />
+										<em>Die Auswahl der Sendungen ist subjektiv und unvollständig.</em>
+								</div>
+								<p><!-- ============================================== --></p>
+								<div class="programmes">
+									<h3>Samstag, 10.09.2016</h3>
+									<p>5h00 Kampfsport: Glory 33, DAZN/$ live</p>
+									<p>6h45 – 7h15 Doku: die nordreportage – Die Fußballeuropameister aus Rostock, tagesschau24<br />
+										&#8212; Die Inklusionsmannschaft von Hansa Rostock vor der Titelverteidigung bei der Europameisterschaft.</p>
+									<p>8h00 Agility: Deutsche Meisterschaft, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>8h30 – 16h00 Beachvolleyball/Smart Beachtour: Timmendorfer Strand, SKY Sport 1/$ | Laola1.tv | <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live<br />
+										* Sportdeutschland: ab 8h30<br />
+										* Laola1.tv: 8h30–16h<br />
+										* SKY: 10h30–16h</p>
+									<p>9h00 – 11h45 Motorsport/MotoGP: Misano, Freies Training, EURO1 live<br />
+										&#8212; 9h: Moto3<br />
+										&#8212; 9h45: MotoGP<br />
+										&#8212; 10h45: Moto2</p>
+									<p>9h00 Volleyball/M, U20-EM: tbd, Platz 7, Laola1.tv live</p>
+									<p>9h00 Tischtennis/World Tour, Challenge Series: Belarus Open, Laola1.tv live<br />
+										* Stream von zwei Tischen</p>
+									<p>10h00 Billard: Open Soltau, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>10h30 – 12h30 Pferderennen: Indian Horse Racing, Laola1.tv live<br />
+										&#8212; 10h30:  Pune<br />
+										&#8212; 10h30:  Kolkata</p>
+									<p>11h30 Volleyball/M, U20-EM: tbd, Platz 5, Laola1.tv live</p>
+									<p>11h45 – 13h30 Paralympics 2016: Rohlstuhlbasketball, sportschau.de live<br />
+										&#8212; Frauen: GBR–GER </p>
+									<p>11h55 – 13h40 Rugby League/NRL: Melbourne Storm – North Queensland Cowboys, DAZN/$ live</p>
+									<p>12h00 – 13h45 Wintersport/Skispringen: Sommer Grand Prix aus Chaikovsky, EURO2 live </p>
+									<p>12h00 – 14h00 Fußball/J-League: Mittagsspiele, DAZN/$ live<br />
+										&#8212; 12h00: Urawa – Tosu<br />
+										&#8212; 12h00: Kawasaki – Fukuoka</p>
+									<p>12h00 Darts/WM-Quali Deutschland: Berlin, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>12h30 – 16h00 Motorsport/MotoGP: Misano, Qualifying, EURO1 live<br />
+										* EURO1: Vorberichte ab 11h45<br />
+										&#8212; 12h30: Moto3<br />
+										&#8212; 13h15: MotoGP<br />
+										&#8212; 15h: Moto2</p>
+									<p>12h30 – 13h00 Motorsport/ DTM: Nürburgring, Qualifying, Einsfestival live</p>
+									<p>13h00 – 15h00 Fußball/Zweite Liga: Samstagsspiele, #4, SKY Sport Bundesliga live<br />
+										&#8212; 13h00: FC St. Pauli – Arminia Bielefeld<br />
+										&#8212; 13h00: Union Berlin – Karlsruher SC</p>
+									<p>13h00 Fußball/SPL: Celtic – Rangers, #5, Sportdigital/$ | SPORT1+/$ | DAZN/$ live</p>
+									<p>13h00 – 15h00 Fußball/La Liga: Celta Vigo – Atletico, #3, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p>13h00 Darts/European Darts Tour: Mülheim, <a href="http://www.laola1.tv/">Laola1.tv</a> live</p>
+									<p>13h30 – 15h30 Fußball/Premier League: Manchester United – Manchester City, #4, DAZN/$ live</p>
+									<p>13h30 – 16h00 Eishockey/KHL: Mittagsspiele, Laola1.tv live<br />
+										&#8212; 13h30: Salavat Yulaev Ufa – Dinamo Minsk<br />
+										&#8212; 14h00: Metallurg Magnitogorsk – Jokerit Helsinki</p>
+									<p>14h00 Fußball/Bundesliga, F: Turbine Potsdam – 1. FFC Frankfurt, #2, SPORT1 | tv.dfb.de live </p>
+									<p>14h00 – 16h00 Fußball/Dritte Liga: Samstagsspiele, MDR | WDR | mdr.de | sportschau.de live<br />
+										&#8212; Sportfreunde Lotte – Jahn Regensburg [WDR]<br />
+										&#8212; Fortuna Köln – Chemnitz [MDR Konf | mdr.de | sportschau.de]<br />
+										&#8212; Mainz 05 II – 1. FC Magdeburg [MDR Konf | mdr.de]</p>
+									<p>14h00 Fußball/Regionalliga Nordost: Energie Cottbus – ZFC Meuselwitz, #6, RBB live</p>
+									<p>14h00 – 17h00 Golf/European Tour: KLM Open, #3/4, SKY Sport 2 live</p>
+									<p>14h30 – 16h00 Motorsport/DTM: Nürburgring, Rennen #1, ARD live</p>
+									<p>14h30 Volleyball/M, U20-EM: tbd, Platz 3, Laola1.tv live</p>
+									<p>15h00 – 18h00 Eishockey/CHL: Nachmittagsspiele, #10, Laola1.tv live<br />
+										&#8212; 15h00: Färjestad Karlstad – Comarch Cracovia<br />
+										&#8212; 16h00: Saipa Lappeenranta – Eisbären Berlin </p>
+									<p>15h00 – 17h00 Fußball/Ligue 2: Le Havre – Valenciennes, DAZN/$ live</p>
+									<p>15h00 – 17h00 Fußball/Serie B: Benevento Calcio – Hellas Verona, #3, Laola1.tv live</p>
+									<p>15h30 – 17h30 Fußball/Bundesliga: Nachmittagsspiele, #2, SKY Sport Bundesliga live<br />
+										&#8212; 15h30: Bayer Leverkusen – Hamburger SV<br />
+										&#8212; 15h30: VfL Wolfsburg – 1.FC Köln<br />
+										&#8212; 15h30: FC Ingolstadt – Hertha BSC<br />
+										&#8212; 15h30: SV Darmstadt 98 – Eintracht Frankfurt<br />
+										&#8212; 15h30: SC Freiburg – Borussia M&#8217;gladbach</p>
+									<p>16h00 – 18h00 Fußball/Premier League: Nachmittagsspiele, #4, DAZN/$ live<br />
+										* DAZN: ein Spiel live. Die anderen fünf Spiele ab 23 Uhr <em>on demand</em>.<br />
+										&#8212; 16h00: Arsenal – Southampton [DAZN live]<br />
+										&#8212; 16h00: Bournemouth – West Brom [DAZN on Demand]<br />
+										&#8212; 16h00: Burnley – Hull City [DAZN on Demand]<br />
+										&#8212; 16h00: Middlesbrough – Crystal Palace [DAZN on Demand]<br />
+										&#8212; 16h00: Stoke City – Tottenham Hotspur [DAZN on Demand]<br />
+										&#8212; 16h00: West Ham United – Watford [DAZN on Demand]</p>
+									<p>16h00 Fußball/Championship: Fulham – Birmingham City, #6, Sportdigital/$ | DAZN/$ live<br />
+										* Sportdigital: Vorberichte ab 15h50</p>
+									<p>16h00 – 18h00 Fußball/La Liga: Real Madrid – Osasuna, #3, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p>16h00 – 18h00 Fußball/AUT, Bundesliga: Sturm Graz – Rapid, #7, SKY Sport/$ live</p>
+									<p>16h00 – 18h00 Fußball/UKR: Zorya Luhansk – FK Stal Kamianske, <a href="http://www.laola1.tv/">Laola1.tv</a> live</p>
+									<p>16h00 – 17h45 Radsport: Vuelta, #20/21, EURO1 live<br />
+										* EURO1: Nachberichte bis 18h</p>
+									<p>16h00 Handball/HBF: Nachmittagsspiele, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live<br />
+										&#8212; 16h: Buxtehuder SV – VfL Oldenburg<br />
+										&#8212; 16h30: HSG Blomberg-Lippe – TuS Metzingen</p>
+									<p>16h00 – 18h00 Handball/F, CL-Quali: Nachmittagsspiele, Laola1.tv live<br />
+										&#8212; 16h00:  Finale Gruppe 2<br />
+										&#8212; 16h00: Krim Mercator – Michalovce<br />
+										&#8212; 16h30: Glassverket – Ankara Yenimahalle BSK</p>
+									<p>16h00 Volleyball/F, Potsdam Masters: St. Petersburg – Weißrussland, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>16h05 – 17h47 Paralympics 2016: Vormittagssessions, ARD live<br />
+										&#8212; Rollstuhlbasketball<br />
+										&#8212; Leichtathletik<br />
+										&#8212; Schwimmen<br />
+										&#8212; Bahnrad</p>
+									<p>16h30 – 19h00 Eishockey/Test: Russland – Tschechien, SPORT1 | tv.sport1.de live</p>
+									<p>16h30 Eishockey/Junioren: Jungadler Mannheim – Starbulls Rosenheim, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>16h30 – 18h30 Fußball/GRC, Pokal: OFI FC – AO Acharnaikos FC, Laola1.tv live</p>
+									<p>16h55 – 20h15 Fußball/SLV: Nachmittagsspiele, #8, Laola1.tv live<br />
+										&#8212; 16h55: NK Maribor – NK Radomlje<br />
+										&#8212; 18h15: Rudar Velenje – NK Celje</p>
+									<p>17h00 – 19h00 Fußball/Ligue 1: Olympique Lyonnais – Girondins Bordeaux, #4, SPORT1+/$ | <a href="http://www.dazn.com/">DAZN/$</a> live<br />
+										* SPORT1+: Vorberichte ab 16h50</p>
+									<p>17h00 – 19h00 Fußball/CRO: Split – Istra 1961, DAZN/$ live</p>
+									<p>17h00 Volleyball/M, U20-EM: tbd, Finale, Laola1.tv live</p>
+									<p>17h20 – 19h15 Paralympics 2016: Rohlstuhlbasketball, sportschau.de live<br />
+										&#8212; Männer: GER–ALG</p>
+									<p>17h30 Kampfsport/Boxen, F: Nordic Fight Nicht, DAZN/$ | ran FIGHTING/$ live<br />
+										&#8212; Mikaela Lauren – Klara Svensson</p>
+									<p>18h00 Serie A: Juventus – Sassuolo, #3, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p>18h00 College Football: Mittagsspiele, #2, <a href="http://www.espnplayer.com">espnplayer.com/$</a> live<br />
+										&#8212; 18h00: East Carolina Pirates – NC State Wolfpack<br />
+										&#8212; 18h00: Pittsburgh Panthers – Penn State Nittany Lions<br />
+										&#8212; 18h00: #5 Michigan Wolverines – UCF Knights<br />
+										&#8212; 18h00: #6 Houston Cougars – Lamar Cardinals<br />
+										&#8212; 18h00: Minnesota Golden Gophers – Indiana State Sycamores<br />
+										&#8212; 18h00: Massachusetts Minutemen – Boston College Eagles<br />
+										&#8212; 18h00: #9 Georgia Bulldogs – Nicholls Colonels<br />
+										&#8212; 18h00: #20 Texas A&#038;M Aggies – Prairie View A&#038;M Panthers<br />
+										&#8212; 18h00: Nebraska Cornhuskers – Wyoming Cowboys<br />
+										&#8212; 19h00: Temple Owls – Stony Brook Seawolves</p>
+									<p>18h00 – 20h00 Tennis: US Open, Finale/M, Doppel, EURO1 live </p>
+									<p>18h00 – 21h45 Eishockey/CHL: Vorabendspiele, #10, Laola1.tv live<br />
+										&#8212; 18h00: Lukko Rauma – ERC Ingolstadt<br />
+										&#8212; 18h00: Kärpät Oulu – Krefeld Pinguine<br />
+										&#8212; 18h00: JYP Jyvaskyla – Les Rapaces de Gap<br />
+										&#8212; 19h45: Rouen Dragons – Djurgardens Stockholm</p>
+									<p>18h00 Eishockey/Test: Schweden – Finnland, SPORT1 US/$ live </p>
+									<p>18h00 Handball/HBF: Thüringer HC – HSG Bad Wildungen, <a href="http://www.thueringer-allgemeine.de/web/zgt/handball/thc-live">thueringer-allgemeine.de</a> | <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>18h05 Motorsport/Audi Sport TT Cup: Nürburgring, Rennen #1/2, tv.sport1.de | DAZN/$ | <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>18h15 – 20h15 Fußball/La Liga: Vorabendspiele, #3, <a href="http://www.dazn.com/">DAZN/$</a> live<br />
+										&#8212; 18h15: Málaga – Villarreal<br />
+										&#8212; 18h15: Sevilla – Las Palmas </p>
+									<p>18h30 – 20h30 Fußball/Bundesliga: RB Leipzig – Borussia Dortmund, #2, SKY Sport Bundesliga live</p>
+									<p>18h30 – 20h30 Fußball/Premier League: Liverpool – Leicester City, #4, DAZN/$ live</p>
+									<p>18h30 – 20h30 Fußball/Championship: Derby – Newcastle Utd, DAZN/$ live</p>
+									<p>18h30 – 20h30 Fußball/AUT, Bundesliga: Vorabendspiele, #7, SKY Sport/$ live<br />
+										&#8212; 18h30: Altach – SV Mattersburg<br />
+										&#8212; 18h30: St. Pölten – SV Ried</p>
+									<p>18h30 – 20h30 Fußball/GRC, Pokal: Panegialios FC – Sparta FC, Laola1.tv live</p>
+									<p>18h30 Handball/3te Liga: HSV Hamburg – SC Magdeburg II, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>18h30 – 21h00 Handball/F, CL-Quali: Vorabendspiele, Laola1.tv live<br />
+										&#8212; 18h30: MKS Selgros Lublin – Indeco Conversano<br />
+										&#8212; 19h00: HC Podravka Vegeta – SERCODAK Dalfsen</p>
+									<p>18h30 Volleyball/F, Potsdam Masters: SC potsdam – Samsun Anakent, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>19h00 Basketball/EM-Quali: Dänemark – Deutschland, #4/6, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>19h00 – 21h30 Eishockey/DEL2: Löwen Frankfurt – Kassel Huskies, SPORT1 | tv.sport1.de live<br />
+										&#8212; DEL2 Summer Game aus der Commerzbank-Arena Frankfurt</p>
+									<p>19h00 Handball/HBL: Hannover-Burgdorf – Flensburg-Handewitt, tv.sport1.de live</p>
+									<p>19h00 – 21h00 Fußball/CRO: Dinamo Zagreb – Osijek, DAZN/$ live</p>
+									<p>19h00 – 21h00 Fußball/SRB: Roter Stern – Bačka Palanka, DAZN/$ live</p>
+									<p>19h00 – 19h55 Motorsport/Formula V8 3.5: Spielberg, Rennen #1/2, SPORT1+/$ Tape</p>
+									<p>19h00 Tischtennis/TTBL: Fulda-Maberzell – 1. FC Saarbrücken, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live </p>
+									<p>19h00 Tischtennis: TSV Bad Königshofen – TTC OE Bad Homburg, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live<br />
+										* Stream von zwei Tischen</p>
+									<p>19h05 – 21h55 Baseball/MLB: Mittagsspiele, MLB.tv/$ live<br />
+										&#8212; 19h05: Toronto Blue Jays – Boston Red Sox<br />
+										&#8212; 19h05: Houston Astros – Chicago Cubs</p>
+									<p>19h15 Fußball/POR: Sporting – Moreirense, #4, Sportdigital/$ live </p>
+									<p>19h30 Handball/HBF: Abendspiele, <a href="http://sportdeutschland.tv/">sportdeutschland.tv</a> live<br />
+										&#8212; Borussia Dortmund – FA Göppingen<br />
+										&#8212; SVG Celle – BBM Bietigheim</p>
+									<p>20h00 – 22h00 Fußball/Ligue 1: Abendspiele, #4, <a href="http://www.dazn.com/">DAZN/$</a> live<br />
+										&#8212; 20h00: Angers – Dijon FCO<br />
+										&#8212; 20h00: SC Bastia – Toulouse FC<br />
+										&#8212; 20h00: EA Guingamp – Montpellier<br />
+										&#8212; 20h00: Lille OSC – AS Monaco<br />
+										&#8212; 20h00: FC Lorient – AS Nancy</p>
+									<p>20h15 – 22h15 Fußball/SLV: FC Koper – NK Krško, #8, Laola1.tv live</p>
+									<p>20h20 – 22h20 Basketball/M, EM-Quali: Österreich – Niederlande, Laola1.tv live</p>
+									<p>20h20 Kampfsport/Boxen: Stekos Fight Night, ran FIGHTING/$ live</p>
+									<p>20h30 – 22h30 Fußball/La Liga: FC Barcelona – Alavés, #3, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p>20h30 – 22h30 Handball/ESP: Abendspiele, #1, Laola1.tv live<br />
+										&#8212; 20h30: Balonmano – Ademar León<br />
+										&#8212; 20h30: Villa de Aranda – Bidasoa Irun<br />
+										&#8212; 20h30: BM Valladolid – Ángel Ximénez</p>
+									<p>20h45 Serie A: Palermo – Napoli, #3, <a href="http://www.dazn.com/">DAZN/$</a> live</p>
+									<p>21h00 – 24h00 Golf/US PGA-Tour: BMW Championship, #3/4, SKY Sport 1 live</p>
+									<p>21h30 College Football: Nachmittagsspiele, #2, SPORT1 US/$ | <a href="http://www.espnplayer.com">espnplayer.com/$</a> live<br />
+										&#8212; 21h30: Bowling Green Falcons – North Dakota Fighting Hawks<br />
+										&#8212; 21h30: #4 Ohio State Buckeyes – Tulsa Golden Hurricane [S1US]<br />
+										&#8212; 21h30: Miami RedHawks – Eastern Illinois Panthers<br />
+										&#8212; 21h30: Duke Blue Devils – Wake Forest Demon Deacons<br />
+										&#8212; 21h30: Appalachian State Mountaineers – Old Dominion Monarchs<br />
+										&#8212; 21h30: #1 Alabama Crimson Tide – Western Kentucky Hilltoppers<br />
+										&#8212; 22h00: #19 Ole Miss Rebels – Wofford Terriers<br />
+										&#8212; 22h00: Indiana Hoosiers – Ball State Cardinals<br />
+										&#8212; 22h00: Vanderbilt Commodores – Middle Tennessee Blue Raiders</p>
+									<p>21h30 Fußball/POR: Porto – Vitoria Guimaraes, #4, Sportdigital/$ | DAZN/$ live </p>
+									<p>22h00 – 0h30 Tennis: US Open, Finale/F, EURO1 live<br />
+										* EURO1: Vorberichte ab 21h45<br />
+										&#8212; #2 Kerber–#10 Pliskova</p>
+									<p>22h05 – 0h55 Baseball/MLB: Vorabendspiele, MLB.tv/$ live<br />
+										&#8212; 22h05: Oakland Athletics – Seattle Mariners<br />
+										&#8212; 22h05: NY Yankees – Tampa Bay Rays</p>
+									<p>23h00 – 1h00 Fußball/ARG: Defensa y Justicia – San Lorenzo, DAZN/$ live</p>
+									<p>23h00 Talk: Das Aktuelle Sportstudio, ZDF<br />
+										Whl: 2h05/3Sat </p>
+									<p>23h15 Kampfsport/Kickboxen: Kampfabend aus München, SAT.1 live<br />
+										* ran FIGHTING: Boxen- und Thaiboxen-Undercards ab 20h20<br />
+										&#8212; Kickboxen: Marie Lang – Sheila Garcia<br />
+										&#8212; Thaiboxen: Michael Smolik – Luca Panto</p>
+									<p>23h30 Boxen: Kampfabend aus London, RTL Nitro live<br />
+										&#8212; Mittelgewicht: Gennady Golovkin – Kell Brook</p>
+									<p>23h35 – 4h18 Paralympics 2016: Abendsessions, ARD live<br />
+										&#8212; Leichtathletik<br />
+										&#8212; Schwimmen<br />
+										&#8212; Rollstuhlbasketball/M: ALG–GER<br />
+										&#8212; Bahnrad</p>
+									<p>24h00 College Football: Abendspiele, #2, <a href="http://www.espnplayer.com">espnplayer.com/$</a> live<br />
+										&#8212; 24h00: Kent State Golden Flashes – North Carolina A&#038;T Aggies<br />
+										&#8212; 1h00: South Alabama Jaguars – Georgia Southern Eagles<br />
+										&#8212; 1h00: Louisiana Lafayette Ragin&#8217; Cajuns – McNeese Cowboys<br />
+										&#8212; 1h00: Western Michigan Broncos – North Carolina Central Eagles<br />
+										&#8212; 1h00: Toledo Rockets – Maine Black Bears<br />
+										&#8212; 1h00: Mississippi State Bulldogs – South Carolina Gamecocks<br />
+										&#8212; 1h00: #15 TCU Horned Frogs – Arkansas Razorbacks<br />
+										&#8212; 1h30: Auburn Tigers – Arkansas State Red Wolves<br />
+										&#8212; 1h30: Missouri Tigers – Eastern Michigan Eagles<br />
+										&#8212; 1h30: #21 LSU Tigers – Jacksonville State Gamecocks<br />
+										&#8212; 2h00: Tulane Green Wave – Southern Jaguars<br />
+										&#8212; 2h00: #17 Tennessee Volunteers – Virginia Tech Hokies<br />
+										&#8212; 2h00: New Mexico State Aggies – New Mexico Lobos</p>
+									<p>1h00 – 3h00 Fußball/MLS: Philadelphia Union – Montreal Impact, #27, EURO2 live </p>
+									<p>1h05 – 5h55 Baseball/MLB: Abendspiele, MLB.tv/$ live<br />
+										&#8212; 1h05: Pittsburgh Pirates – Cincinnati Reds<br />
+										&#8212; 1h05: Washington Nationals – Philadelphia Phillies<br />
+										&#8212; 1h10: Detroit Tigers – Baltimore Orioles<br />
+										&#8212; 1h10: Minnesota Twins – Cleveland Indians<br />
+										&#8212; 1h10: Chicago White Sox – Kansas City Royals<br />
+										&#8212; 1h10: Miami Marlins – LA Dodgers<br />
+										&#8212; 1h10: Atlanta Braves – NY Mets<br />
+										&#8212; 1h15: St. Louis Cardinals – Milwaukee Brewers<br />
+										&#8212; 2h10: Arizona Diamondbacks – San Francisco Giants<br />
+										&#8212; 2h40: San Diego Padres – Colorado Rockies<br />
+										&#8212; 3h05: LA Angels – Texas Rangers</p>
+									<p>1h45 Motorsport/NASCAR: Richmond, Motorvision TV live<br />
+										* Motorvision: Vorberichte ab 1h</p>
+									<p>4h00 Kampfsport/UFC: UFC #203, ran FIGHTING/PPV live<br />
+										&#8212; Stipe Miocic – Alistar Overeem</p>
+									<p>4h15 College Football: Spätspiele, #2, SPORT1 US/$ | <a href="http://www.espnplayer.com">espnplayer.com/$</a> live<br />
+										&#8212; 4h15: Boise State Broncos – Washington State Cougars<br />
+										&#8212; 4h30: #24 Oregon Ducks – Virginia Cavaliers [S1US]</p>
+									<p><em>Der jeweilige Sendetag geht von 6h bis 6h den nächsten Morgen.</em><br />
+										<em>Die Auswahl der Sendungen ist subjektiv und unvollständig.</em>
+								</div>
+							</div><!-- /.posting-content -->
+
+							<!--
+								<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="http://www.allesaussersport.de/archiv/2016/09/09/screensport-am-freitag-251/"
+	dc:identifier="http://www.allesaussersport.de/archiv/2016/09/09/screensport-am-freitag-251/"
+	dc:title="Screensport am Freitag"
+	trackback:ping="http://www.allesaussersport.de/archiv/2016/09/09/screensport-am-freitag-251/trackback/" />
+	</rdf:RDF>							-->
+
+						</article><!-- /.posting -->
+
+						<!-- You can start editing here. -->
+						<div class="o-box-comments">
+
+							<h3 class="a-box-title">Reaktionen</h3>
+
+
+
+
+
+							<!-- ============================================== -->
+
+							<ol class="m-comments">
+
+								<li class="m-comments-description-nocomments">
+									<div class="wrapper">
+										<h4 class="a-comments-description-title">Wo kann man Kommentare eingeben?</h4>
+										<p>Nach elf Jahren habe ich die Kommentare im Blog mangels Zeit für Kommentarverwaltung geschlossen. Es kann noch kommentiert werden. Es ist aber etwas umständlicher geworden.</p>
+										<ol>
+											<li>Das Kommentarblog <strong><a href="http://allesausseraas.de/">http://allesausseraas.de/</a></strong>, aufgezogen von den Lesern <a href="https://twitter.com/sternburgexport">@sternburgexport</a> und <a href="https://twitter.com/jimmi2times">@jimmi2times</a></li>
+											<li>Sogenannte „<strong>Webmentions</strong>“ mit einem eigenen Blog. Siehe <a href="https://indiewebcamp.com/Webmention#Andy_Sylvester_with_WordPress_Webmention_plugin">IndieWebCamp</a></li>
+										</ol>
+									</div>
+								</li><!-- /.m-comments-description-nocomments -->
+
+
+
+						</div><!-- /.o-box-comments -->
+
+
+					</div><!-- /.col-wrapper -->
+
+
+					<ul class="pager reset--list clearfix">
+						<li class="pager-item prev">
+							<a href="http://www.allesaussersport.de/archiv/2016/09/08/screensport-am-donnerstag-402/" rel="prev">Ältere Texte</a>
+						</li>
+						<li class="pager-item next"></li>
+					</ul><!-- /.pager -->
+
+
+					<!-- / if have_posts() -->
+
+				</div> <!-- /.col-content -->
+
+			</div> <!-- .wrapper -->
+
+			<!-- script src="_js/jquery-1.11.3.min.js"></script -->
+			<!-- script src="../../dist/_js/aas.min.js"></script -->
+
+		</div><!-- /#mocha-fixture -->
+
+		<!-- JS to be tested -->
+		<script src="../src/_js/aas.js"></script>
+
+		<!-- Test-Suite -->
+		<script src="aastoggler.test.js"></script>
+
+		<script>
+			mocha.checkLeaks();
+			mocha.globals(['jQuery', '$']);
+			mocha.run();
+		</script>
+
+	</body>
+</html>
