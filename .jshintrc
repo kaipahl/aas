@@ -3,6 +3,12 @@
 	"browser"		: true,
 	"jquery"		: true,
 	"node"			: true,
+	"mocha"			: true,
+	"globals"		: {
+		"describe"	: true,
+		"it"		: true,
+		"expect"	: true
+	},
 
 	"camelcase"		: true,
 	"quotmark"		: "single",
