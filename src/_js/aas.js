@@ -92,27 +92,62 @@ var aasToggler = {
 
 			var pattESPN = /ESPN.*$/i;
 			if (pattESPN.test(content)) {
-				$(this).addClass('espn');
+				$(this).addClass('espn').addClass('tv-pay').addClass('pay');
 			}
 
 			var pattSky = /SKY.*$/i;
 			if (pattSky.test(content)) {
-				$(this).addClass('sky');
+				$(this).addClass('sky').addClass('tv-pay').addClass('pay').addClass('tv');
 			}
 
-			var pattEuro = /EURO.*$/i;
-			if (pattEuro.test(content)) {
-				$(this).addClass('euro');
+			var pattEuro1 = /EURO1/;
+			if (pattEuro1.test(content)) {
+				$(this).addClass('euro-1').addClass('euro').addClass('tv').addClass('tv-free').addClass('free');
 			}
 
-			var pattFreeTv = /(ARD|ZDF|NDR|BR|WDR|SWR|HR|MDR|EURO\/|EUROS|SPORT1\/|RTL|SAT|BBC|ITV|Direct|Servus|ORFsport).*$/i;
+			var pattEuro2 = /EURO2/;
+			if (pattEuro2.test(content)) {
+				$(this).addClass('euro-2').addClass('euro').addClass('tv').addClass('tv-pay').addClass('pay');
+			}
+
+			var pattEuroplayer = /eurosportplayer/;
+			if (pattEuroplayer.test(content)) {
+				$(this).addClass('euro').addClass('stream').addClass('pay');
+			}
+
+			var pattEspnplayer = /espnplayer/;
+			if (pattEspnplayer.test(content)) {
+				$(this).addClass('espn').addClass('stream').addClass('pay');
+			}
+
+			var pattDazn = /DAZN/;
+			if (pattDazn.test(content)) {
+				$(this).addClass('dazn').addClass('stream').addClass('pay');
+			}
+
+			var pattSportdigital = /sportdigital/;
+			if (pattSportdigital.test(content)) {
+				$(this).addClass('sportdigital').addClass('tv').addClass('pay');
+			}
+
+			var pattFreeTv = /(ARD|ZDF|NDR|BR|WDR|SWR|HR|MDR|EURO\/|EUROS|SPORT1\/|RTL|SAT|BBC|ITV|Direct|Servus|ORFsport|MAXX|RTL Nitro|n-tv).*$/i;
 			if (pattFreeTv.test(content)) {
-				$(this).addClass('free-tv');
+				$(this).addClass('tv-free').addClass('tv');
 			}
 
-			var pattStream = /(irgendwo|Stream).*$/i;
+			var pattPayTv = /(FUN).*$/i;
+			if (pattPayTv.test(content)) {
+				$(this).addClass('tv-pay').addClass('tv');
+			}
+
+			var pattStream = /(irgendwo|stream|laola1|tv\.sport1\.de|ran|DAZN|\.de|eurosportplayer|gamepass|MLB\.tv|NHL\.tv|NBA League|spox).*/i;
 			if (pattStream.test(content)) {
 				$(this).addClass('stream');
+			}
+
+			var pattStreamPay = /(FIGHTING|DAZN|eurosportplayer|gamepass|espnplayer|MLB\.tv|NHL\.tv|NBA\.TV).*/i;
+			if (pattStreamPay.test(content)) {
+				$(this).addClass('stream').addClass('pay');
 			}
 		});
 	},
@@ -122,44 +157,56 @@ var aasToggler = {
 	 */
 	addToggler: function() {
 
-		var keys = {
-			'features': 'Features',
-			'exoten': 'Exoten',
-			'fussball': 'Fußball',
-			'teamsport': 'Teamsport (Non-Fußball, Non-US-Sport)',
-			'ussport': 'US-Sport',
-			'motorsport': 'Motorsport',
-			'wintersport': 'Wintersport',
-			'kneipensport': 'Kneipensport',
-			'kleinballsport': 'Kleinballsport'
-		};
+		var
+			keySports = {
+				'features': 'Features',
+				'exoten': 'Exoten',
+				'fussball': 'Fußball',
+				'teamsport': 'Teamsport (Non-Fußball, Non-US-Sport)',
+				'ussport': 'US-Sport',
+				'motorsport': 'Motorsport',
+				'wintersport': 'Wintersport',
+				'kneipensport': 'Kneipensport',
+				'kleinballsport': 'Kleinballsport'
+			},
+			keyChannels = {
+				// 'tv': 'TV',
+				// 'tv-free': 'Free-TV',
+				// 'euro': 'Eurosport',
+				// 'stream': 'Streams',
+				'dazn': '- DAZN' // ,
+				// 'spde': '- SportDeutschland'
+			};
 		var htmlWrapperPrefix = '<ul class="toggler">';
 		var htmlWrapperSuffix = '</ul>';
 
-		var selectHtml = '<li>';
-		selectHtml += '<label>Nur bestimmte Sendungen anzeigen</label>';
-		selectHtml += '<select>';
-		selectHtml += '<option value="all" selected="selected">Alle Sendungen anzeigen</option>';
-		for (var aKey in keys) {
-			if (keys.hasOwnProperty(aKey)) {
-				selectHtml += '<option value="'+aKey+'">'+keys[aKey]+'</option>';
+		var selectSportsHtml = '<li>';
+		selectSportsHtml += '<label>Nur bestimmten Sport anzeigen</label>';
+		selectSportsHtml += '<select>';
+		selectSportsHtml += '<option value="all" selected="selected">Allen Sport anzeigen</option>';
+		for (var sport in keySports) {
+			if (keySports.hasOwnProperty(sport)) {
+				selectSportsHtml += '<option value="'+sport+'">'+keySports[sport]+'</option>';
 			}
 		}
-		selectHtml += '</select>';
-		selectHtml += '</li>';
+		selectSportsHtml += '</select>';
+		selectSportsHtml += '</li>';
 
-		var htmlStr = htmlWrapperPrefix + selectHtml + htmlWrapperSuffix;
+		var selectChannelsHtml = '<li>';
+		selectChannelsHtml += '<label>Nur bestimmte Sender anzeigen</label>';
+		selectChannelsHtml += '<select>';
+		selectChannelsHtml += '<option value="all" selected="selected">Alle Sender anzeigen</option>';
+		for (var channel in keyChannels) {
+			if (keyChannels.hasOwnProperty(channel)) {
+				selectChannelsHtml += '<option value="'+channel+'">'+keyChannels[channel]+'</option>';
+			}
+		}
+		selectChannelsHtml += '</select>';
+		selectChannelsHtml += '</li>';
+
+		var htmlStr = htmlWrapperPrefix + selectSportsHtml + selectChannelsHtml + htmlWrapperSuffix;
 
 		$('.programmes H3').after(htmlStr);
-	},
-
-
-	/**
-	 * Wird es überhaupt noch benutzt?
-	 */
-	toggleProgrammes: function(aKey) {
-		var selectorStr = '.programmes P';
-		$(selectorStr).not('.'+aKey).slideToggle(1500);
 	},
 
 

@@ -3,48 +3,24 @@
 /* jshint -W024 */
 /* jshint expr:true */
 
-/**
-if (typeof process === 'object') {
-	// Initialize node environment
-	global.expect = require('chai').expect;
-	require('jsdom-global')();
+var jq;
+
+// Test is running inside browser
+if (typeof $ !== 'undefined' ) {
+	jq = $;
 } else {
-	window.expect = window.chai.expect;
-	window.require = function () {  };
+	var fs = require('fs');
+	var chai = require('chai');
+	var expect = chai.expect;
+	var jsdom = require('jsdom');
+	var window = jsdom.jsdom().defaultView;
+	require('jsdom-global')(); // needed?
+	jq = require('jquery')(require('jsdom').jsdom().defaultView);
 }
 
 
-before(function () {
-	this.jsdom = require('jsdom-global')();
-	global.$ = global.jQuery = require('jquery');
-});
-
-after(function () {
-	this.jsdom();
-});
-
- */
-// var chai = require('chai');
-// var expect = chai.expect;
-// var jsdom = require('jsdom-global');
-
-// var jsdom = require('jsdom-global')();
-// global.$ = global.jQuery = require('jquery');
-
-
-// console.log(global.$);
-
-describe('Check jQuery', function() {
-	var jqueryVersion = $.fn.jquery;
-
-	it ('... should show jQuery-Version', function() {
-		expect (jqueryVersion).to.equal('1.11.3');
-	});
-
-});
-
 describe('Check HTML', function() {
-	var links = $('BODY').html();
+	var links = jq('BODY').html();
 
 	it ('... should load the HTML into the test', function() {
 		expect (links.length).to.be.above(45782);
@@ -52,11 +28,35 @@ describe('Check HTML', function() {
 
 });
 
-describe('Check DOM', function() {
-	var links = document.querySelectorAll('.motorsport');
+describe('Check different sports', function() {
 
-	it ('... should have some links', function() {
-		expect ( links.length).to.equal(9);
+	it ('... should have all motorsport shows', function() {
+		var motorsports = jq('.motorsport');
+		expect ( motorsports.length).to.equal(9);
+	});
+
+	it ('... should have all nonexotic shows', function() {
+		var nonexotic = jq('.nonexoten');
+		expect ( nonexotic.length).to.equal(96);
+	});
+
+});
+
+describe('Check different channels', function() {
+
+	it ('... should have all EURO1 shows', function() {
+		var euro1 = jq('.euro-1');
+		expect ( euro1.length).to.equal(10);
+	});
+
+	it ('... should have all DAZN shows', function() {
+		var dazn = jq('.dazn');
+		expect ( dazn.length).to.equal(36);
+	});
+
+	it ('... should have all streams', function() {
+		var streams = jq('.stream');
+		expect ( streams.length).to.equal(100);
 	});
 
 });

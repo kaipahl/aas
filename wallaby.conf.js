@@ -8,9 +8,9 @@ module.exports = function (wallaby) {
 		],
 
 		tests: [,
-			'tests/spec/aastoggler.test.js'
+			'test/spec/aastoggler.test.js'
 		],
 
-		testFramework: 'qunit'
+		testFramework: 'mocha'
 	};
 };
