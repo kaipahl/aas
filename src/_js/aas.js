@@ -54,7 +54,7 @@ var aasToggler = {
 				$(this).addClass('features');
 			}
 
-			var pattUSSport = /^\d?\dh\d\d((\s|[\240])–(\s|[\240])\d?\dh\d\d)? (NFL|MLB|NHL|NBA|CFL|College|NASCAR|Baseball|Doku: 30|Lacrosse|Eishockey\/NHL|Basketball\/NBA|American Football)/i;
+			var pattUSSport = /^\d?\dh\d\d((\s|[\240])–(\s|[\240])\d?\dh\d\d)? (NFL|MLB|NHL|NBA|CFL|College|NASCAR|Baseball|Doku: 30|Lacrosse|Eishockey\/NHL|Basketball\/NBA|American Football|Canadian Football)/i;
 			if (pattUSSport.test(content)) {
 				$(this).addClass('ussport');
 			}
